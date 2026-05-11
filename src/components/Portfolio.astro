@@ -1,0 +1,106 @@
+---
+const projects = [
+  { id:'01', name:'Plataforma CRM – Sector Inmobiliario',          roles:'PM + Lead Dev + QA', stack:'React, Java, Spring Boot, PostgreSQL, AWS',      result:'Ciclo lead-to-contract -35%; 50+ usuarios activos' },
+  { id:'02', name:'Sistema Digital de Registro Civil',             roles:'Lead Dev + QA',       stack:'Java, React, PostgreSQL, Spring Boot',           result:'Consulta de registros: de 2-6 hrs a menos de 5 min' },
+  { id:'03', name:'Sistema de Gestión Municipal (SGM)',            roles:'PM + Lead Dev',        stack:'Spring Boot, REST API, React, SQL Server',       result:'5 áreas municipales integradas; eliminación total del papel' },
+  { id:'04', name:'Plataforma de Gestión de Programas Sociales',  roles:'Lead Dev + QA',        stack:'Python, PostgreSQL, REST API',                   result:'Detección de duplicados; reportes automáticos < 1 min' },
+  { id:'05', name:'Digitalización de Archivo Civil Histórico',    roles:'PM + QA',              stack:'Fujitsu IX1600, Python OCR, AWS S3',             result:'90%+ del archivo histórico digitalizado y respaldado' },
+  { id:'06', name:'Red LAN/WiFi – 40 Nodos',                      roles:'Arquitecto + PM',      stack:'Cat6, MikroTik RB4011, TP-Link WiFi 6',          result:'100% de conectividad; 0 incidentes de red' },
+  { id:'07', name:'Dashboard BI Financiero',                       roles:'Lead Dev',             stack:'Power BI, Python, SQL Server',                   result:'Visibilidad financiera en tiempo real para la dirección' },
+  { id:'08', name:'Plataforma Educativa – Sector ONG',            roles:'PM + Lead Dev',        stack:'React, Node.js, Firebase',                       result:'120+ jóvenes impactados; 5 talleres tecnológicos apoyados' },
+  { id:'09', name:'App de Gestión de Compost Orgánico',           roles:'Lead Dev + QA',        stack:'Python, ML, PostgreSQL, pandas',                 result:'Eficiencia de compostaje +15%; base para 3 publicaciones' },
+  { id:'10', name:'Modelo ML – Optimización Cadena de Suministro',roles:'Lead Dev',             stack:'Python, scikit-learn, pandas',                   result:'Costos logísticos simulados reducidos en 22%' },
+  { id:'11', name:'Firewall Institucional y Endurecimiento',       roles:'Arquitecto + QA',      stack:'MikroTik, Windows Server, Firewalls',            result:'0 incidentes de seguridad en 12 meses continuos' },
+  { id:'12', name:'Red de Radio-Transmisor – 3 Oficinas Remotas', roles:'PM + Lead Dev',        stack:'Redes de radio, TCP/IP, VPN',                    result:'Conectividad estable para 3 oficinas antes aisladas' },
+  { id:'13', name:'Automatización de 5 Procesos Institucionales', roles:'Lead Dev + QA',        stack:'Python, REST APIs, SQL',                         result:'Errores manuales -25%; tiempo de atención ciudadana -30%' },
+  { id:'14', name:'Plataforma de Alfabetización Digital',         roles:'PM + Lead Dev',        stack:'React, LMS, Firebase',                           result:'150+ estudiantes; 20 docentes capacitados' },
+  { id:'15', name:'Sistema de Gestión de Delegados',              roles:'PM + Lead Dev',        stack:'Node.js, React, PostgreSQL',                     result:'15 delegados coordinados; 3 reconocimientos regionales' },
+  { id:'16', name:'Infraestructura de Micro-Servidor Institucional',roles:'Arquitecto + PM',   stack:'Windows Server, RAID 1, UPS',                    result:'99.9% de disponibilidad; datos centralizados y respaldados' },
+  { id:'17', name:'Azure AI – Automatización de Procesos',        roles:'Lead Dev',             stack:'Azure Cognitive Services, Python',               result:'Eficiencia de procesos clave +40% en clientes privados' },
+  { id:'18', name:'Pipeline de Datos de Investigación',           roles:'Lead Dev',             stack:'Python, pandas, Power BI',                       result:'500+ datos procesados; 3 informes para publicaciones' },
+  { id:'19', name:'Plataformas Educativas Innovadoras (x2)',      roles:'PM + Lead Dev',        stack:'React, Moodle, Azure',                           result:'Accesibilidad al aprendizaje +40%; 3 centros juveniles' },
+];
+---
+<section id="portfolio" class="py-24 bg-white relative overflow-hidden">
+  <div class="absolute right-0 top-1/2 w-72 h-72 rounded-full opacity-15 pointer-events-none"
+       style="background: radial-gradient(circle, rgba(8,145,178,0.2), transparent 70%)"></div>
+
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="section-reveal mb-14">
+      <div class="section-label">03 — Proyectos</div>
+      <h2 class="section-heading text-4xl md:text-5xl mt-2">
+        Portfolio <span class="gradient-text">Profesional</span>
+      </h2>
+      <p class="text-[#5F6368] mt-3 text-base">19 proyectos entregados — PM + Lead Dev + QA en todos los roles. 100% en plazo.</p>
+      <div class="g-dot-divider mt-5">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- Summary badges -->
+    <div class="flex flex-wrap gap-3 mb-10 section-reveal">
+      {[
+        { label: '19 Proyectos',      color: '#4285F4', bg: '#E8F0FE' },
+        { label: '100% en plazo',     color: '#34A853', bg: '#E6F4EA' },
+        { label: 'PM + Dev + QA',     color: '#7c3aed', bg: '#EDE9FE' },
+        { label: '270+ Beneficiarios',color: '#0891b2', bg: '#E0F7FA' },
+      ].map(b => (
+        <span class="text-sm font-semibold px-4 py-1.5 rounded-full"
+              style={`color: ${b.color}; background: ${b.bg}; border: 1px solid ${b.color}30`}>
+          {b.label}
+        </span>
+      ))}
+    </div>
+
+    <!-- Desktop table -->
+    <div class="section-reveal hidden md:block overflow-hidden rounded-2xl g-card border-[#E8EAED]">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="border-b border-[#E8EAED] bg-[#F8F9FA]">
+              <th class="px-4 py-4 text-xs text-[#80868B] uppercase tracking-widest font-semibold">#</th>
+              <th class="px-4 py-4 text-xs text-[#80868B] uppercase tracking-widest font-semibold">Proyecto</th>
+              <th class="px-4 py-4 text-xs text-[#80868B] uppercase tracking-widest font-semibold">Rol(es)</th>
+              <th class="px-4 py-4 text-xs text-[#80868B] uppercase tracking-widest font-semibold">Stack</th>
+              <th class="px-4 py-4 text-xs text-[#80868B] uppercase tracking-widest font-semibold">Resultado Clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            {projects.map((p, i) => (
+              <tr class={`project-row border-b border-[#F1F3F4] transition-colors ${i % 2 === 0 ? 'bg-white' : 'bg-[#F8F9FA]'}`}>
+                <td class="px-4 py-3.5 text-xs font-mono text-[#4285F4] font-bold">{p.id}</td>
+                <td class="px-4 py-3.5 text-sm text-[#202124] font-medium max-w-xs">{p.name}</td>
+                <td class="px-4 py-3.5">
+                  <span class="text-xs px-2 py-0.5 rounded-full whitespace-nowrap font-semibold"
+                        style="color: #7c3aed; background: #EDE9FE; border: 1px solid #7c3aed30">
+                    {p.roles}
+                  </span>
+                </td>
+                <td class="px-4 py-3.5 text-xs text-[#5F6368] max-w-[200px]">{p.stack}</td>
+                <td class="px-4 py-3.5 text-xs text-[#0891b2] max-w-xs font-medium">{p.result}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Mobile cards -->
+    <div class="md:hidden grid grid-cols-1 gap-4 section-reveal">
+      {projects.map((p) => (
+        <div class="g-card rounded-xl p-5">
+          <div class="flex items-start gap-3 mb-3">
+            <span class="text-xs font-mono font-bold px-2 py-1 rounded-lg shrink-0"
+                  style="color: #4285F4; background: #E8F0FE; border: 1px solid #4285F430">
+              {p.id}
+            </span>
+            <h4 class="text-sm font-semibold text-[#202124]">{p.name}</h4>
+          </div>
+          <p class="text-xs font-semibold mb-2" style="color: #7c3aed">{p.roles}</p>
+          <p class="text-xs text-[#5F6368] mb-2">{p.stack}</p>
+          <p class="text-xs font-medium" style="color: #0891b2">{p.result}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

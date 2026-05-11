@@ -1,0 +1,75 @@
+---
+---
+<header class="fixed top-0 left-0 right-0 z-50" id="navbar">
+  <nav class="nav-google">
+    <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-2.5 group select-none">
+        <div class="w-9 h-9 rounded-xl bg-[#4285F4] flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-200">
+          <span class="text-white font-black text-sm font-display">JB</span>
+        </div>
+        <div class="hidden sm:flex flex-col leading-none">
+          <span class="font-bold text-[#202124] text-sm font-display tracking-tight">Johao Bernal</span>
+          <span class="text-[10px] text-[#4285F4] font-semibold tracking-widest uppercase">Portfolio</span>
+        </div>
+      </a>
+
+      <!-- Links desktop -->
+      <ul class="hidden md:flex items-center gap-6 text-sm">
+        <li><a href="#about"      class="nav-link" data-section="about">Sobre mí</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experiencia</a></li>
+        <li><a href="#portfolio"  class="nav-link" data-section="portfolio">Portfolio</a></li>
+        <li><a href="#techstack"  class="nav-link" data-section="techstack">Tech Stack</a></li>
+        <li><a href="#awards"     class="nav-link" data-section="awards">Premios</a></li>
+        <li><a href="#education"  class="nav-link" data-section="education">Educación</a></li>
+        <li><a href="#skills"     class="nav-link" data-section="skills">Habilidades</a></li>
+      </ul>
+
+      <!-- CTA desktop -->
+      <a href="#contact" class="btn-primary text-sm hidden sm:inline-flex">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        Contactar
+      </a>
+
+      <!-- Mobile menu button -->
+      <button id="menu-btn" class="md:hidden btn-icon">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[#E8EAED] bg-white px-5 py-4">
+      <ul class="flex flex-col gap-3 text-sm">
+        {[
+          ['#about','Sobre mí'],['#experience','Experiencia'],['#portfolio','Portfolio'],
+          ['#techstack','Tech Stack'],['#awards','Premios'],['#education','Educación'],
+          ['#skills','Habilidades'],
+        ].map(([href, label]) => (
+          <li>
+            <a href={href} class="nav-link block py-1"
+               onclick="document.getElementById('mobile-menu').classList.add('hidden')">
+              {label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a href="#contact" class="btn-primary text-sm mt-1"
+             onclick="document.getElementById('mobile-menu').classList.add('hidden')">
+            Contactar
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.getElementById('menu-btn')?.addEventListener('click', () => {
+    document.getElementById('mobile-menu')?.classList.toggle('hidden');
+  });
+</script>

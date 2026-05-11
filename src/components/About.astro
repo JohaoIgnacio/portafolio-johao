@@ -1,0 +1,83 @@
+---
+---
+<section id="about" class="py-24 bg-white relative overflow-hidden">
+  <!-- subtle bg blobs -->
+  <div class="absolute right-0 top-0 w-80 h-80 rounded-full opacity-30 pointer-events-none"
+       style="background: radial-gradient(circle, rgba(66,133,244,0.12), transparent 70%)"></div>
+
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- Header -->
+    <div class="section-reveal mb-14">
+      <div class="section-label">01 — Sobre mí</div>
+      <h2 class="section-heading text-4xl md:text-5xl mt-2">
+        Resumen <span class="gradient-text">Profesional</span>
+      </h2>
+      <div class="g-dot-divider mt-5">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-5 gap-10 items-start">
+      <!-- Profile card -->
+      <div class="md:col-span-2 section-reveal" style="transition-delay:0.1s">
+        <div class="g-card rounded-3xl p-8 text-center" style="border-top: 3px solid #4285F4">
+          <!-- Avatar -->
+          <div class="w-28 h-28 mx-auto rounded-2xl flex items-center justify-center text-5xl font-black text-white mb-6 shadow-lg font-display"
+               style="background: linear-gradient(135deg, #4285F4, #7c3aed)">J</div>
+          <h3 class="text-xl font-bold text-[#202124] font-display mb-0.5">Johao Fabrizio</h3>
+          <p class="text-[#5F6368] text-sm mb-5">Ignacio Bernal</p>
+
+          <!-- Info list -->
+          <div class="space-y-3 text-left">
+            {[
+              { icon: '🏢', label: 'CEO & Fundador',               sub: 'Mantaro Systems SAC' },
+              { icon: '📍', label: 'Chiclayo, Lambayeque',          sub: 'Perú' },
+              { icon: '📧', label: 'jignaciob@mantaro-systems.com', sub: '' },
+              { icon: '📱', label: '+51 932 215 727',               sub: '' },
+            ].map(item => (
+              <div class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F8F9FA] transition-colors">
+                <span class="text-lg mt-0.5">{item.icon}</span>
+                <div>
+                  <p class="text-[#202124] text-sm font-medium leading-tight">{item.label}</p>
+                  {item.sub && <p class="text-[#80868B] text-xs mt-0.5">{item.sub}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary + highlights -->
+      <div class="md:col-span-3 space-y-5 section-reveal" style="transition-delay:0.2s">
+        <div class="g-card rounded-2xl p-7">
+          <p class="text-[#5F6368] leading-relaxed text-base">
+            Ingeniero de Sistemas de Información con más de <strong class="text-[#4285F4]">2 años de experiencia progresiva</strong> en desarrollo de software empresarial, transformación digital del sector público y liderazgo de equipos técnicos. Operó como consultor tecnológico independiente de enero de 2024 a junio de 2025.
+          </p>
+          <p class="text-[#5F6368] leading-relaxed text-base mt-4">
+            Fundó <strong class="text-[#7c3aed]">Mantaro Systems SAC</strong> para formalizar y escalar dicha práctica consultora. Ganador del <strong class="text-[#FBBC04]">Hult Prize UTP 2026</strong> representando a la Universidad Tecnológica del Perú. Ganador del <strong class="text-[#34A853]">Fondo Semilla Reactiva Cultura (USD 5,000)</strong> de la Embajada de EE.UU. en Perú.
+          </p>
+          <p class="text-[#5F6368] leading-relaxed text-base mt-4">
+            Portafolio profesional de <strong class="text-[#4285F4]">19 proyectos</strong> que abarca consultoría freelance, empleo municipal, investigación académica — entrega al <strong class="gradient-text font-bold">100% en plazo</strong>, más de 270 beneficiarios directos.
+          </p>
+        </div>
+
+        <!-- Key highlights -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            { icon: '🏆', title: '1er Lugar Hult Prize UTP 2026', sub: 'Representante Nacional — 130+ países', color: '#FBBC04', bg: '#FEF7E0' },
+            { icon: '🇺🇸', title: 'Fondo Semilla US Embassy',     sub: 'Programa Reactiva Cultura — $5,000 USD', color: '#4285F4', bg: '#E8F0FE' },
+            { icon: '🎓', title: 'Aspire Leaders — Harvard',      sub: 'Programa de liderazgo global estudiantil', color: '#7c3aed', bg: '#EDE9FE' },
+            { icon: '🚀', title: 'CDP — Embajada de EE.UU.',      sub: 'Propuesta USD 150,000 — Fase 2',          color: '#34A853', bg: '#E6F4EA' },
+          ].map(item => (
+            <div class="g-card-flat p-4 hover:scale-[1.02] transition-transform cursor-default"
+                 style={`border-left: 3px solid ${item.color}`}>
+              <span class="text-2xl">{item.icon}</span>
+              <p class="text-sm font-bold text-[#202124] mt-2" style={`color: ${item.color}`}>{item.title}</p>
+              <p class="text-xs text-[#5F6368] mt-0.5">{item.sub}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

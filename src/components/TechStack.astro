@@ -1,0 +1,211 @@
+---
+// Tech Stack con logos reales via SimpleIcons CDN
+const categories = [
+  {
+    id: 'languages',
+    label: '💻 Lenguajes',
+    color: '#4285F4',
+    techs: [
+      { name: 'Python',     icon: 'python',     color: '#3776AB', level: 92 },
+      { name: 'JavaScript', icon: 'javascript',  color: '#F7DF1E', level: 88 },
+      { name: 'TypeScript', icon: 'typescript',  color: '#3178C6', level: 85 },
+      { name: 'Java',       icon: 'java',        color: '#007396', level: 82 },
+      { name: 'SQL',        icon: 'postgresql',  color: '#336791', level: 90 },
+      { name: 'HTML5',      icon: 'html5',       color: '#E34F26', level: 90 },
+      { name: 'CSS3',       icon: 'css3',        color: '#1572B6', level: 85 },
+      { name: 'C++',        icon: 'cplusplus',   color: '#00599C', level: 60 },
+    ],
+  },
+  {
+    id: 'frameworks',
+    label: '⚡ Frameworks',
+    color: '#7c3aed',
+    techs: [
+      { name: 'React',        icon: 'react',       color: '#61DAFB', level: 88 },
+      { name: 'Node.js',      icon: 'nodedotjs',   color: '#339933', level: 80 },
+      { name: 'Spring Boot',  icon: 'springboot',  color: '#6DB33F', level: 82 },
+      { name: 'Astro',        icon: 'astro',       color: '#FF5D01', level: 85 },
+      { name: 'Next.js',      icon: 'nextdotjs',   color: '#000000', level: 75 },
+      { name: 'pandas',       icon: 'pandas',      color: '#150458', level: 87 },
+      { name: 'FastAPI',      icon: 'fastapi',     color: '#009688', level: 78 },
+      { name: 'Svelte',       icon: 'svelte',      color: '#FF3E00', level: 72 },
+    ],
+  },
+  {
+    id: 'enterprise',
+    label: '🏢 Herramientas Empresariales',
+    color: '#EA4335',
+    techs: [
+      { name: 'SAP',              icon: 'sap',              color: '#0FAAFF', level: 80 },
+      { name: 'Microsoft Excel',  icon: 'microsoftexcel',   color: '#217346', level: 92 },
+      { name: 'Power BI',         icon: 'powerbi',          color: '#F2C811', level: 85 },
+      { name: 'Power Automate',   icon: 'powerautomate',    color: '#0066FF', level: 78 },
+      { name: 'SharePoint',       icon: 'microsoftsharepoint', color: '#0078D4', level: 72 },
+      { name: 'Teams',            icon: 'microsoftteams',   color: '#6264A7', level: 88 },
+      { name: 'Word',             icon: 'microsoftword',    color: '#2B579A', level: 90 },
+      { name: 'PowerPoint',       icon: 'microsoftpowerpoint', color: '#B7472A', level: 88 },
+    ],
+  },
+  {
+    id: 'cloud',
+    label: '☁️ Cloud & DevOps',
+    color: '#34A853',
+    techs: [
+      { name: 'Azure',        icon: 'microsoftazure', color: '#0078D4', level: 87 },
+      { name: 'AWS',          icon: 'amazonaws',      color: '#FF9900', level: 78 },
+      { name: 'Google Cloud', icon: 'googlecloud',    color: '#4285F4', level: 65 },
+      { name: 'Firebase',     icon: 'firebase',       color: '#FFCA28', level: 75 },
+      { name: 'Docker',       icon: 'docker',         color: '#2496ED', level: 72 },
+      { name: 'GitHub',       icon: 'github',         color: '#181717', level: 90 },
+      { name: 'Vercel',       icon: 'vercel',         color: '#000000', level: 82 },
+      { name: 'Linux',        icon: 'linux',          color: '#FCC624', level: 78 },
+    ],
+  },
+  {
+    id: 'databases',
+    label: '🗄️ Bases de Datos',
+    color: '#FBBC04',
+    techs: [
+      { name: 'PostgreSQL',  icon: 'postgresql',  color: '#336791', level: 88 },
+      { name: 'SQL Server',  icon: 'microsoftsqlserver', color: '#CC2927', level: 85 },
+      { name: 'MongoDB',     icon: 'mongodb',     color: '#47A248', level: 75 },
+      { name: 'MySQL',       icon: 'mysql',       color: '#4479A1', level: 83 },
+      { name: 'Redis',       icon: 'redis',       color: '#DC382D', level: 65 },
+    ],
+  },
+  {
+    id: 'network',
+    label: '🔧 Redes & Infra',
+    color: '#FF6D00',
+    techs: [
+      { name: 'MikroTik',        icon: 'mikrotik',      color: '#293239', level: 85 },
+      { name: 'Cisco',           icon: 'cisco',         color: '#1BA0D7', level: 75 },
+      { name: 'Windows Server',  icon: 'windows',       color: '#0078D4', level: 82 },
+      { name: 'VMware',          icon: 'vmware',        color: '#607078', level: 70 },
+      { name: 'Wireshark',       icon: 'wireshark',     color: '#1679A7', level: 72 },
+    ],
+  },
+];
+---
+
+<section id="techstack" class="py-24 bg-[#F8F9FA] techstack-section">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="section-reveal text-center mb-14">
+      <div class="section-label mx-auto w-fit">Stack Tecnológico</div>
+      <h2 class="section-heading text-4xl md:text-5xl mt-2 mb-3">
+        Tecnologías & <span class="gradient-text">Herramientas</span>
+      </h2>
+      <p class="text-[#5F6368] max-w-xl mx-auto text-sm leading-relaxed">
+        Ecosistema completo de herramientas — desde lenguajes de programación hasta suites empresariales como SAP y Microsoft 365.
+      </p>
+      <!-- Google dots -->
+      <div class="g-dot-divider justify-center mt-5">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- Category filter chips -->
+    <div class="section-reveal flex flex-wrap gap-2 justify-center mb-12" id="ts-filters">
+      <button class="chip active" data-filter="all">Todas</button>
+      {categories.map(cat => (
+        <button class="chip" data-filter={cat.id}>{cat.label}</button>
+      ))}
+    </div>
+
+    <!-- Tech grid per category -->
+    {categories.map((cat, ci) => (
+      <div
+        class="section-reveal mb-12 ts-category"
+        data-category={cat.id}
+        style={`transition-delay:${ci * 0.07}s`}
+      >
+        <!-- Category header -->
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px flex-1 bg-[#E8EAED]"></div>
+          <span class="text-sm font-bold text-[#5F6368] tracking-wide">{cat.label}</span>
+          <div class="h-px flex-1 bg-[#E8EAED]"></div>
+        </div>
+
+        <!-- Logo cards grid -->
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+          {cat.techs.map(tech => (
+            <div
+              class="tech-logo-card group"
+              style={`--brand-color: ${tech.color}`}
+              title={`${tech.name} — ${tech.level}% dominio`}
+            >
+              <!-- Logo via SimpleIcons CDN -->
+              <img
+                src={`https://cdn.simpleicons.org/${tech.icon}/${tech.color.replace('#','')}`}
+                alt={tech.name}
+                width="44"
+                height="44"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+              />
+              <!-- Fallback emoji/text if icon fails -->
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xs font-bold text-white hidden"
+                   style={`background: ${tech.color}; display:none`}>
+                {tech.name.slice(0,2).toUpperCase()}
+              </div>
+
+              <span class="tech-name">{tech.name}</span>
+
+              <!-- Level bar -->
+              <div class="tech-level-bar w-full">
+                <div
+                  class="tech-level-bar-fill"
+                  data-width={`${tech.level}%`}
+                  style={`background: ${tech.color}`}
+                ></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+  </div>
+</section>
+
+<script>
+  // Category filter
+  const filterBtns = document.querySelectorAll('#ts-filters .chip');
+  const categories = document.querySelectorAll('.ts-category');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = (btn as HTMLElement).dataset.filter;
+
+      categories.forEach(cat => {
+        const el = cat as HTMLElement;
+        if (filter === 'all' || el.dataset.category === filter) {
+          el.style.display = 'block';
+          setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, 10);
+        } else {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(10px)';
+          setTimeout(() => { el.style.display = 'none'; }, 250);
+        }
+      });
+    });
+  });
+
+  // Animate level bars when visible
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('[data-width]').forEach((bar: Element) => {
+          const b = bar as HTMLElement;
+          setTimeout(() => { b.style.width = b.dataset.width || '0%'; }, 100);
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.ts-category').forEach(el => barObs.observe(el));
+</script>
