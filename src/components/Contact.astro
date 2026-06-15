@@ -22,11 +22,16 @@ const contacts = [
 
     <div class="grid gap-6 lg:grid-cols-[1.1fr_.9fr]">
       <form
+        id="contact-form"
         class="section-reveal rounded-[8px] border border-white/12 bg-white p-6 text-[var(--ink)] shadow-[var(--shadow)]"
-        action={`mailto:${email}`}
-        method="post"
-        enctype="text/plain"
+        action={`https://formsubmit.co/ajax/${email}`}
+        method="POST"
       >
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde el portafolio de Johao" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" />
+
         <div class="grid gap-4 sm:grid-cols-2">
           <label class="grid gap-2 text-sm font-bold">
             Nombre
@@ -34,7 +39,7 @@ const contacts = [
           </label>
           <label class="grid gap-2 text-sm font-bold">
             Correo
-            <input name="correo" type="email" required placeholder="tu@email.com" class="min-h-12 rounded-[8px] border border-[var(--line)] px-4 outline-none transition focus:border-[var(--teal)]" />
+            <input name="email" type="email" required placeholder="tu@email.com" class="min-h-12 rounded-[8px] border border-[var(--line)] px-4 outline-none transition focus:border-[var(--teal)]" />
           </label>
         </div>
 
@@ -48,9 +53,11 @@ const contacts = [
           <textarea name="mensaje" required rows="6" placeholder="Cuéntame qué necesitas resolver." class="resize-none rounded-[8px] border border-[var(--line)] px-4 py-3 outline-none transition focus:border-[var(--teal)]"></textarea>
         </label>
 
+        <p id="contact-status" class="mt-4 hidden rounded-[8px] border border-[var(--line)] bg-[var(--mist)] px-4 py-3 text-sm font-bold text-[var(--teal)]"></p>
+
         <div class="mt-5 flex flex-col gap-3 sm:flex-row">
           <button type="submit" class="btn btn-primary">
-            Enviar por correo
+            Enviar mensaje
           </button>
           <a href="https://wa.me/51932215727" target="_blank" rel="noopener" class="btn btn-secondary">
             Escribir por WhatsApp
@@ -80,3 +87,35 @@ const contacts = [
     </footer>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const status = document.getElementById("contact-status") as HTMLElement | null;
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!status) return;
+
+    const submit = form.querySelector("button[type='submit']") as HTMLButtonElement | null;
+    status.classList.remove("hidden");
+    status.textContent = "Enviando mensaje...";
+    submit?.setAttribute("disabled", "true");
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) throw new Error("No se pudo enviar el mensaje.");
+
+      form.reset();
+      status.textContent = "Mensaje enviado correctamente. Te responderé pronto.";
+    } catch {
+      status.textContent = "No se pudo enviar ahora. Escríbeme a johaoignaciob@gmail.com o por WhatsApp.";
+    } finally {
+      submit?.removeAttribute("disabled");
+    }
+  });
+</script>
