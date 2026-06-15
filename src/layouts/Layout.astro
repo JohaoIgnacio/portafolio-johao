@@ -1,12 +1,14 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
+
 interface Props {
   title?: string;
   description?: string;
 }
+
 const {
-  title = "Johao Fabrizio Bernal — CEO & Software Engineer | Azure AI",
-  description = "CEO & Fundador de Mantaro Systems SAC. Ingeniero de Software especialista en Azure AI, desarrollo empresarial y transformación digital del sector público en Perú."
+  title = "Johao Fabrizio Ignacio Bernal | Software Engineer & Founder",
+  description = "Portafolio profesional de Johao Fabrizio Ignacio Bernal: Project Manager en corporación inmobiliaria, ingeniero de software, automatización de procesos, datos e infraestructura."
 } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -15,64 +17,46 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="keywords" content="Johao Bernal, Mantaro Systems, Software Engineer, Azure AI, Chiclayo, Peru, CEO, Full Stack Developer, Hult Prize, SAP, Excel, Python, React" />
+    <meta name="keywords" content="Johao Bernal, Project Manager, Software Engineer, Automatizacion, Inmobiliaria, Azure AI, Chiclayo, Peru, Full Stack Developer, Transformacion Digital" />
     <meta name="author" content="Johao Fabrizio Ignacio Bernal" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="/johao-profile.jpg" />
     <title>{title}</title>
-    <!-- Google Fonts: Inter + Outfit + Fira Code -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-[#F8F9FA] text-[#202124] overflow-x-hidden">
+  <body>
     <slot />
     <script>
-      // ===== Scroll Reveal =====
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
         });
-      }, { threshold: 0.07 });
-      document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el));
+      }, { threshold: 0.08 });
 
-      // ===== Skill / Tech bar animation =====
-      const barObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll('[data-width]').forEach((bar: Element) => {
-              const b = bar as HTMLElement;
-              b.style.width = b.dataset.width || '0%';
-            });
-          }
-        });
-      }, { threshold: 0.15 });
-      document.querySelectorAll('.skills-section, .techstack-section').forEach(el => barObs.observe(el));
+      document.querySelectorAll(".section-reveal").forEach((el) => revealObserver.observe(el));
 
-      // ===== Navbar scroll shadow =====
-      const nav = document.getElementById('navbar');
-      window.addEventListener('scroll', () => {
-        if (!nav) return;
-        const inner = nav.querySelector('.nav-google') as HTMLElement;
-        if (inner) inner.classList.toggle('scrolled', window.scrollY > 10);
+      const nav = document.getElementById("navbar-inner");
+      window.addEventListener("scroll", () => {
+        nav?.classList.toggle("scrolled", window.scrollY > 12);
       });
 
-      // ===== Active nav link =====
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-link[data-section]');
-      const navObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            navLinks.forEach(link => {
-              const l = link as HTMLElement;
-              const isActive = l.dataset.section === entry.target.id;
-              l.classList.toggle('active', isActive);
-            });
-          }
+      const links = document.querySelectorAll(".nav-link[data-section]");
+      const sections = document.querySelectorAll("section[id]");
+      const activeObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          links.forEach((link) => {
+            const el = link as HTMLElement;
+            el.classList.toggle("active", el.dataset.section === entry.target.id);
+          });
         });
       }, { threshold: 0.35 });
-      sections.forEach(s => navObs.observe(s));
+
+      sections.forEach((section) => activeObserver.observe(section));
     </script>
   </body>
 </html>

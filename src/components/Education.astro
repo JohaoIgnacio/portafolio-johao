@@ -1,124 +1,33 @@
 ---
 const education = [
-  {
-    degree: 'Ingeniería de Sistemas de Información — B.S.',
-    institution: 'Universidad Tecnológica del Perú (UTP)',
-    period: 'Mar 2020 — Dic 2025',
-    location: 'Chiclayo, Lambayeque, Perú',
-    icon: '🎓',
-    color: '#4285F4',
-    bg: '#E8F0FE',
-    type: 'Grado Universitario',
-    highlights: ['Análisis de datos', 'Arquitectura de datos', 'Integración de sistemas'],
-  },
-  {
-    degree: 'Programa Aspire Leaders',
-    institution: 'Universidad de Harvard',
-    period: 'Ene — Mar 2025',
-    location: 'Cambridge, MA, EE.UU.',
-    icon: '🏛️',
-    color: '#EA4335',
-    bg: '#FCE8E6',
-    type: 'Programa de Liderazgo',
-    highlights: ['Programa de liderazgo global para estudiantes de primera generación', 'Mentorías con docentes de Harvard Business School'],
-  },
-  {
-    degree: 'Especialización en Gestión de Proyectos',
-    institution: 'WE (Plataforma de Aprendizaje en Línea)',
-    period: '2025',
-    location: 'En línea — Certificado',
-    icon: '📋',
-    color: '#7c3aed',
-    bg: '#EDE9FE',
-    type: 'Especialización · 60 clases',
-    highlights: ['Planificación de proyectos', 'Gestión de recursos y riesgos', 'QA y comunicación con stakeholders'],
-  },
-  {
-    degree: 'Certificación de Analista de Datos',
-    institution: 'Platzi',
-    period: 'Ene — Jun 2025',
-    location: 'En línea',
-    icon: '📊',
-    color: '#34A853',
-    bg: '#E6F4EA',
-    type: 'Certificación',
-    highlights: ['Power BI', 'Business Intelligence', 'Analítica de RRHH', 'Integración de datos'],
-  },
-  {
-    degree: 'Oracle Full Stack Developer & Ciencias de la Computación',
-    institution: 'Oracle Academy',
-    period: '2024',
-    location: 'En línea',
-    icon: '🔴',
-    color: '#EA4335',
-    bg: '#FCE8E6',
-    type: 'Certificación Oracle',
-    highlights: ['Desarrollo full stack', 'Ciencias de la computación', 'Diseño UI/UX'],
-  },
-  {
-    degree: 'Analista Junior en Ciberseguridad',
-    institution: 'Cisco Networking Academy',
-    period: '2024',
-    location: 'En línea',
-    icon: '🛡️',
-    color: '#0891b2',
-    bg: '#E0F7FA',
-    type: 'Certificación Cisco',
-    highlights: ['Análisis de ciberseguridad', 'Redes', 'Protocolos de seguridad'],
-  },
-  {
-    degree: 'Inglés Avanzado — Certificado',
-    institution: 'ICPNA (Instituto Cultural Peruano Norteamericano)',
-    period: 'Ene 2024 — Dic 2025',
-    location: 'Chiclayo, Perú',
-    icon: '🇺🇸',
-    color: '#5F6368',
-    bg: '#F1F3F4',
-    type: 'Certificación de Idioma',
-    highlights: ['Certificación de nivel avanzado', 'Comunicación técnica y empresarial en inglés'],
-  },
+  ["Ingeniería de Sistemas de Información", "Universidad Tecnológica del Perú", "Mar 2020 - Dic 2025", "Análisis de datos, arquitectura e integración de sistemas."],
+  ["Programa Aspire Leaders", "Universidad de Harvard", "Ene - Mar 2025", "Liderazgo global para estudiantes de primera generación."],
+  ["Gestión de Proyectos", "WE - Plataforma de aprendizaje", "2025", "Planificación, riesgos, recursos, QA y comunicación."],
+  ["Analista de Datos", "Platzi", "Ene - Jun 2025", "Power BI, business intelligence e integración de datos."],
+  ["Full Stack Developer", "Oracle Academy", "2024", "Desarrollo full stack, ciencias de la computación y UI/UX."],
+  ["Analista Junior en Ciberseguridad", "Cisco Networking Academy", "2024", "Redes, análisis de seguridad y protocolos."],
+  ["Inglés Avanzado", "ICPNA", "Ene 2024 - Dic 2025", "Comunicación técnica y empresarial en inglés."],
 ];
 ---
-<section id="education" class="py-24 bg-[#F8F9FA] relative overflow-hidden">
-  <div class="absolute right-0 bottom-0 w-72 h-72 rounded-full opacity-20 pointer-events-none"
-       style="background: radial-gradient(circle, rgba(66,133,244,0.2), transparent 70%)"></div>
-
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="section-reveal mb-14">
-      <div class="section-label">06 — Formación</div>
-      <h2 class="section-heading text-4xl md:text-5xl mt-2">
-        Educación & <span class="gradient-text">Certificaciones</span>
-      </h2>
-      <div class="g-dot-divider mt-5">
-        <span></span><span></span><span></span><span></span>
-      </div>
+<section id="education" class="section">
+  <div class="container">
+    <div class="section-reveal">
+      <p class="section-kicker">Formación</p>
+      <h2 class="section-title">Base académica y aprendizaje continuo.</h2>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-5">
-      {education.map((edu, i) => (
-        <div
-          class="section-reveal g-card rounded-2xl p-6 flex gap-5"
-          style={`transition-delay:${i * 0.08}s; border-left: 3px solid ${edu.color}`}
-        >
-          <!-- Icon -->
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0"
-               style={`background: ${edu.bg}`}>
-            {edu.icon}
-          </div>
-
-          <!-- Content -->
-          <div class="flex-1 min-w-0">
-            <span class="text-xs font-bold uppercase tracking-widest" style={`color: ${edu.color}`}>{edu.type}</span>
-            <h3 class="text-sm font-bold text-[#202124] mt-1 font-display leading-snug">{edu.degree}</h3>
-            <p class="text-xs font-semibold mt-0.5" style={`color: ${edu.color}`}>{edu.institution}</p>
-            <p class="text-xs text-[#80868B] mt-1 font-mono">{edu.period} · {edu.location}</p>
-            <div class="flex flex-wrap gap-1.5 mt-3">
-              {edu.highlights.map(h => (
-                <span class="text-xs text-[#5F6368] bg-[#F1F3F4] border border-[#E8EAED] px-2 py-0.5 rounded-md">{h}</span>
-              ))}
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      {education.map(([degree, institution, period, detail], index) => (
+        <article class="section-reveal card card-hover p-5" style={`transition-delay:${index * .05}s`}>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h3 class="font-display text-xl font-black">{degree}</h3>
+              <p class="mt-1 text-sm font-bold text-[var(--teal)]">{institution}</p>
             </div>
+            <span class="chip shrink-0">{period}</span>
           </div>
-        </div>
+          <p class="mt-4 text-sm leading-6 text-[var(--muted)]">{detail}</p>
+        </article>
       ))}
     </div>
   </div>

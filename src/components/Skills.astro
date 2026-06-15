@@ -1,156 +1,26 @@
 ---
-const skillCategories = [
-  {
-    icon: '💻',
-    title: 'Lenguajes',
-    color: '#4285F4',
-    bg: '#E8F0FE',
-    skills: [
-      { name: 'Python',               level: 92 },
-      { name: 'JavaScript/TypeScript', level: 88 },
-      { name: 'Java',                  level: 82 },
-      { name: 'SQL',                   level: 90 },
-      { name: 'HTML/CSS',              level: 87 },
-    ],
-  },
-  {
-    icon: '⚡',
-    title: 'Frameworks & Librerías',
-    color: '#7c3aed',
-    bg: '#EDE9FE',
-    skills: [
-      { name: 'React',            level: 88 },
-      { name: 'Spring Boot',      level: 82 },
-      { name: 'Node.js',          level: 80 },
-      { name: 'REST APIs',        level: 92 },
-      { name: 'pandas / sklearn', level: 85 },
-    ],
-  },
-  {
-    icon: '🏢',
-    title: 'Herramientas Empresariales',
-    color: '#EA4335',
-    bg: '#FCE8E6',
-    skills: [
-      { name: 'SAP',             level: 80 },
-      { name: 'Microsoft Excel', level: 92 },
-      { name: 'Power BI',        level: 85 },
-      { name: 'Power Automate',  level: 78 },
-      { name: 'Microsoft 365',   level: 88 },
-    ],
-  },
-  {
-    icon: '☁️',
-    title: 'Nube & IA',
-    color: '#34A853',
-    bg: '#E6F4EA',
-    skills: [
-      { name: 'Azure AI & Cognitive Services', level: 87 },
-      { name: 'AWS (EC2, RDS, S3)',            level: 78 },
-      { name: 'Google Cloud',                  level: 65 },
-      { name: 'Firebase',                      level: 75 },
-    ],
-  },
-  {
-    icon: '📊',
-    title: 'Datos & BI',
-    color: '#FBBC04',
-    bg: '#FEF7E0',
-    skills: [
-      { name: 'Power BI',             level: 85 },
-      { name: 'PostgreSQL/SQL Server', level: 88 },
-      { name: 'pandas/NumPy',          level: 84 },
-      { name: 'ML con scikit-learn',   level: 80 },
-    ],
-  },
-  {
-    icon: '🔧',
-    title: 'Infraestructura & Redes',
-    color: '#FF6D00',
-    bg: '#FFF3E0',
-    skills: [
-      { name: 'MikroTik (RouterOS)',   level: 85 },
-      { name: 'Windows Server / RAID', level: 82 },
-      { name: 'Firewalls & VPN',       level: 83 },
-      { name: 'LAN/WiFi Cat6',         level: 88 },
-    ],
-  },
-];
-
-const softSkills = [
-  'Liderazgo técnico', 'Gestión de proyectos', 'Comunicación con stakeholders',
-  'Toma de decisiones bajo presión', 'Innovación aplicada', 'Trabajo en equipo multidisciplinario',
-  'Español nativo', 'Inglés avanzado (ICPNA)',
+const skills = [
+  ["Dirección técnica", "Liderazgo de equipos, arquitectura de solución, QA y toma de decisiones."],
+  ["Gestión de proyectos", "Scrum, Kanban, comunicación con stakeholders y seguimiento de alcance."],
+  ["Consultoría", "Diagnóstico de procesos, levantamiento de requisitos y priorización de impacto."],
+  ["Comunicación", "Español nativo, inglés avanzado y presentación ejecutiva de resultados."],
 ];
 ---
-
-<section id="skills" class="py-24 bg-white skills-section">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <!-- Header -->
-    <div class="section-reveal text-center mb-14">
-      <div class="section-label mx-auto w-fit">07 — Tecnología</div>
-      <h2 class="section-heading text-4xl md:text-5xl mt-2">
-        Nivel de <span class="gradient-text">Habilidades</span>
-      </h2>
-      <div class="g-dot-divider justify-center mt-5">
-        <span></span><span></span><span></span><span></span>
-      </div>
+<section id="skills" class="section bg-white">
+  <div class="container">
+    <div class="section-reveal">
+      <p class="section-kicker">Habilidades</p>
+      <h2 class="section-title">Competencias que conectan tecnología con negocio.</h2>
     </div>
 
-    <!-- Skill cards grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-      {skillCategories.map((cat, ci) => (
-        <div
-          class="section-reveal g-card p-6"
-          style={`transition-delay:${ci * 0.08}s; border-top: 3px solid ${cat.color}`}
-        >
-          <!-- Card header -->
-          <div class="flex items-center gap-3 mb-5">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-lg"
-                 style={`background: ${cat.bg}`}>
-              {cat.icon}
-            </div>
-            <h3 class="font-bold text-[#202124] font-display text-sm">{cat.title}</h3>
-          </div>
-
-          <!-- Skill bars -->
-          <div class="space-y-3.5">
-            {cat.skills.map(skill => (
-              <div>
-                <div class="flex justify-between items-center mb-1.5">
-                  <span class="text-xs text-[#5F6368] font-medium">{skill.name}</span>
-                  <span class="text-xs font-mono font-bold" style={`color: ${cat.color}`}>{skill.level}%</span>
-                </div>
-                <div class="h-1.5 bg-[#F1F3F4] rounded-full overflow-hidden">
-                  <div
-                    class="skill-bar-fill h-full rounded-full"
-                    data-width={`${skill.level}%`}
-                    style={`width:0%; background: linear-gradient(to right, ${cat.color}, ${cat.color}99); transition: width 1.3s cubic-bezier(0.16,1,0.3,1)`}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+    <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {skills.map(([title, text], index) => (
+        <article class="section-reveal card card-hover p-6" style={`transition-delay:${index * .08}s`}>
+          <span class="text-sm font-black text-[var(--teal)]">0{index + 1}</span>
+          <h3 class="font-display mt-4 text-xl font-black">{title}</h3>
+          <p class="mt-3 text-sm leading-6 text-[var(--muted)]">{text}</p>
+        </article>
       ))}
     </div>
-
-    <!-- Soft skills chips -->
-    <div class="section-reveal g-card p-7">
-      <div class="flex items-center gap-3 mb-5">
-        <div class="w-10 h-10 rounded-xl bg-[#E8F0FE] flex items-center justify-center text-lg">🧠</div>
-        <h3 class="font-bold text-[#202124] font-display text-sm">Competencias & Idiomas</h3>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        {softSkills.map(skill => (
-          <span class="text-xs text-[#5F6368] bg-[#F1F3F4] border border-[#E8EAED] px-4 py-2 rounded-xl
-                       hover:border-[#4285F4] hover:text-[#4285F4] hover:bg-[#E8F0FE] transition-all cursor-default font-medium">
-            {skill}
-          </span>
-        ))}
-      </div>
-    </div>
-
   </div>
 </section>
