@@ -1,34 +1,139 @@
 ---
-const education = [
-  ["Ingeniería de Sistemas de Información", "Universidad Tecnológica del Perú", "Mar 2020 - Dic 2025", "Análisis de datos, arquitectura e integración de sistemas."],
-  ["Programa Aspire Leaders", "Universidad de Harvard", "Ene - Mar 2025", "Liderazgo global para estudiantes de primera generación."],
-  ["Gestión de Proyectos", "WE - Plataforma de aprendizaje", "2025", "Planificación, riesgos, recursos, QA y comunicación."],
-  ["Analista de Datos", "Platzi", "Ene - Jun 2025", "Power BI, business intelligence e integración de datos."],
-  ["Full Stack Developer", "Oracle Academy", "2024", "Desarrollo full stack, ciencias de la computación y UI/UX."],
-  ["Analista Junior en Ciberseguridad", "Cisco Networking Academy", "2024", "Redes, análisis de seguridad y protocolos."],
-  ["Inglés Avanzado", "ICPNA", "Ene 2024 - Dic 2025", "Comunicación técnica y empresarial en inglés."],
+/**
+ * TODO Johao: confirma el año exacto de cada programa de Harvard DCE.
+ * Los títulos ya están con el nombre oficial del certificado.
+ */
+interface Item {
+  degree: string;
+  institution: string;
+  period: string;
+  detail: string;
+  current?: boolean;
+}
+
+const principal: Item[] = [
+  {
+    degree: "Diplomado en Gerencia de Tecnologías de la Información",
+    institution: "Universidad Privada del Norte (UPN)",
+    period: "2026",
+    detail:
+      "Gobierno de TI, gestión de portafolio tecnológico, presupuesto y dirección de áreas de sistemas.",
+    current: true,
+  },
+  {
+    degree: "Strategic Project Management",
+    institution: "Harvard DCE · Professional & Executive Development",
+    period: "2025",
+    detail:
+      "Dirección estratégica de proyectos: alineación con objetivos de negocio, gestión de alcance y riesgo, liderazgo de equipos y comunicación con stakeholders.",
+  },
+  {
+    degree: "Business Analytics (Online) Program",
+    institution: "Harvard DCE · Professional & Executive Development",
+    period: "2025",
+    detail:
+      "Analítica de negocio aplicada: modelado de datos, métricas de decisión, visualización y traducción del análisis a decisiones ejecutivas.",
+  },
+  {
+    degree: "Ingeniería de Sistemas de Información",
+    institution: "Universidad Tecnológica del Perú",
+    period: "Mar 2020 - Dic 2025",
+    detail: "Análisis de datos, arquitectura e integración de sistemas.",
+  },
+];
+
+const certificaciones: Item[] = [
+  {
+    degree: "Programa Aspire Leaders",
+    institution: "Harvard University · Aspire Institute",
+    period: "Ene - Mar 2025",
+    detail: "Liderazgo global para estudiantes de primera generación.",
+  },
+  {
+    degree: "Analista de Datos",
+    institution: "Platzi",
+    period: "Ene - Jun 2025",
+    detail: "Power BI, business intelligence e integración de datos.",
+  },
+  {
+    degree: "Gestión de Proyectos",
+    institution: "WE · Plataforma de aprendizaje",
+    period: "2025",
+    detail: "Planificación, riesgos, recursos, QA y comunicación.",
+  },
+  {
+    degree: "Full Stack Developer",
+    institution: "Oracle Academy",
+    period: "2024",
+    detail: "Desarrollo full stack, ciencias de la computación y UI/UX.",
+  },
+  {
+    degree: "Analista Junior en Ciberseguridad",
+    institution: "Cisco Networking Academy",
+    period: "2024",
+    detail: "Redes, análisis de seguridad y protocolos.",
+  },
+  {
+    degree: "Inglés Avanzado",
+    institution: "ICPNA",
+    period: "Ene 2024 - Dic 2025",
+    detail: "Comunicación técnica y empresarial en inglés.",
+  },
 ];
 ---
 <section id="education" class="section">
   <div class="container">
     <div class="section-reveal">
       <p class="section-kicker">Formación</p>
-      <h2 class="section-title">Base académica y aprendizaje continuo.</h2>
+      <h2 class="section-title">Base académica y especialización continua.</h2>
+      <p class="section-copy">
+        Ingeniería de sistemas como base, dos programas ejecutivos de Harvard DCE en dirección
+        estratégica de proyectos y analítica de negocio, y un diplomado en curso orientado a la
+        gerencia de TI.
+      </p>
     </div>
 
-    <div class="mt-10 grid gap-4 md:grid-cols-2">
-      {education.map(([degree, institution, period, detail], index) => (
-        <article class="section-reveal card card-hover p-5" style={`transition-delay:${index * .05}s`}>
+    <div class="mt-10 grid gap-5 lg:grid-cols-2">
+      {principal.map((item, index) => (
+        <article
+          class="section-reveal card card-hover p-6"
+          style={`transition-delay:${index * .06}s; border-left:3px solid ${["var(--amber)", "var(--teal)", "var(--cobalt)", "var(--graphite)"][index]}`}
+        >
           <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <h3 class="font-display text-xl font-black">{degree}</h3>
-              <p class="mt-1 text-sm font-bold text-[var(--teal)]">{institution}</p>
+              <h3 class="font-display text-xl font-black leading-tight">{item.degree}</h3>
+              <p class="mt-1 text-sm font-bold text-[var(--teal)]">{item.institution}</p>
             </div>
-            <span class="chip shrink-0">{period}</span>
+            <span class="flex shrink-0 flex-wrap gap-2">
+              {item.current && <span class="chip chip-live">En curso</span>}
+              <span class="chip">{item.period}</span>
+            </span>
           </div>
-          <p class="mt-4 text-sm leading-6 text-[var(--muted)]">{detail}</p>
+          <p class="mt-4 text-sm leading-6 text-[var(--muted)]">{item.detail}</p>
         </article>
       ))}
     </div>
+
+    <details class="section-reveal mt-8 card p-6">
+      <summary class="cursor-pointer list-none">
+        <span class="font-display text-xl font-black">Certificaciones y cursos complementarios</span>
+        <span class="mt-1 block text-sm text-[var(--muted)]">
+          {certificaciones.length} programas adicionales. Pulsa para desplegar.
+        </span>
+      </summary>
+
+      <div class="mt-6 grid gap-3 md:grid-cols-2">
+        {certificaciones.map((item) => (
+          <div class="border-t border-[var(--line)] pt-3">
+            <div class="flex items-start justify-between gap-3">
+              <span class="text-sm font-extrabold">{item.degree}</span>
+              <span class="shrink-0 text-xs font-bold text-[var(--muted)]">{item.period}</span>
+            </div>
+            <span class="mt-1 block text-sm text-[var(--teal)]">{item.institution}</span>
+            <span class="mt-1 block text-sm text-[var(--muted)]">{item.detail}</span>
+          </div>
+        ))}
+      </div>
+    </details>
   </div>
 </section>

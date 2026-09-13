@@ -1,11 +1,14 @@
 ---
-const email = "johaoignaciob@gmail.com";
-const phone = "+51 932 215 727";
+import { perfil } from "../data/perfil";
+
+const email = perfil.email;
 const contacts = [
   ["Email", email, `mailto:${email}`],
-  ["WhatsApp", phone, "https://wa.me/51932215727"],
-  ["Ubicación", "Chiclayo, Lambayeque, Perú", "https://maps.google.com/?q=Chiclayo,Lambayeque,Peru"],
-  ["Rol actual", "Project Manager - Corp. inmobiliaria", "#experience"],
+  ["WhatsApp", perfil.telefono, perfil.whatsapp],
+  ["LinkedIn", "Perfil profesional", perfil.linkedin],
+  ["GitHub", "Repositorios y código", perfil.github],
+  ["CV", "Descargar en PDF", perfil.cv],
+  ["Ubicación", `${perfil.ubicacion} · Remoto`, "https://maps.google.com/?q=Chiclayo,Lambayeque,Peru"],
 ];
 ---
 <section id="contact" class="section bg-[var(--ink)] text-white">
@@ -13,10 +16,10 @@ const contacts = [
     <div class="section-reveal mb-10">
       <p class="text-xs font-extrabold uppercase tracking-[.18em] text-[#8dd7cf]">Contacto</p>
       <h2 class="font-display mt-4 max-w-4xl text-[clamp(2.4rem,5vw,4.9rem)] font-black leading-[.95]">
-        Hablemos de automatización, gestión de proyectos y soluciones digitales.
+        Hablemos de tu ERP, tu infraestructura o el proceso que hoy hacen a mano.
       </h2>
       <p class="mt-5 max-w-2xl text-lg leading-8 text-white/72">
-        Escríbeme para coordinar una reunión, revisar una oportunidad laboral o conversar sobre una solución tecnológica.
+        Implementación y desarrollo sobre Odoo, montaje de servidores y redes, o automatización de procesos. Escríbeme para coordinar una reunión o revisar una oportunidad.
       </p>
     </div>
 
@@ -45,7 +48,7 @@ const contacts = [
 
         <label class="mt-4 grid gap-2 text-sm font-bold">
           Asunto
-          <input name="asunto" type="text" required placeholder="Proyecto, entrevista, automatización..." class="min-h-12 rounded-[8px] border border-[var(--line)] px-4 outline-none transition focus:border-[var(--teal)]" />
+          <input name="asunto" type="text" required placeholder="Implementación Odoo, infraestructura, automatización..." class="min-h-12 rounded-[8px] border border-[var(--line)] px-4 outline-none transition focus:border-[var(--teal)]" />
         </label>
 
         <label class="mt-4 grid gap-2 text-sm font-bold">
@@ -59,7 +62,7 @@ const contacts = [
           <button type="submit" class="btn btn-primary">
             Enviar mensaje
           </button>
-          <a href="https://wa.me/51932215727" target="_blank" rel="noopener" class="btn btn-secondary">
+          <a href={perfil.whatsapp} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
             Escribir por WhatsApp
           </a>
         </div>
@@ -68,7 +71,7 @@ const contacts = [
       <aside class="section-reveal rounded-[8px] border border-white/12 bg-white/5 p-6" style="transition-delay:.1s">
         <h3 class="font-display text-2xl font-black">Datos directos</h3>
         <p class="mt-2 text-sm leading-6 text-white/62">
-          Canales actuales para contactarme. Respondo principalmente por correo y WhatsApp.
+          Correo y WhatsApp son los canales más rápidos. El CV en PDF está disponible para descarga directa.
         </p>
         <div class="mt-6 grid gap-3">
           {contacts.map(([label, value, href]) => (
@@ -83,7 +86,7 @@ const contacts = [
 
     <footer class="mt-16 flex flex-col gap-3 border-t border-white/12 pt-6 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
       <p>© 2026 Johao Fabrizio Ignacio Bernal</p>
-      <p>Project Manager, automatización y software desde Chiclayo, Perú.</p>
+      <p>Odoo, infraestructura y automatización desde Chiclayo, Perú.</p>
     </footer>
   </div>
 </section>

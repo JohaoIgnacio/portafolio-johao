@@ -1,23 +1,26 @@
 ---
 const groups = [
-  ["Lenguajes", ["Python", "JavaScript", "TypeScript", "Java", "SQL", "HTML", "CSS", "C++"]],
-  ["Frontend & Backend", ["React", "Astro", "Next.js", "Node.js", "Spring Boot", "FastAPI", "REST APIs"]],
-  ["Datos & BI", ["PostgreSQL", "SQL Server", "Power BI", "pandas", "NumPy", "scikit-learn", "Excel"]],
-  ["Cloud & DevOps", ["Azure", "AWS", "Firebase", "Docker", "GitHub", "Vercel", "Linux"]],
-  ["Empresa & Redes", ["SAP", "Power Automate", "SharePoint", "MikroTik", "Cisco", "Windows Server", "VPN"]],
+  ["ERP & Odoo", ["Odoo", "Python", "XML / QWeb", "ORM Odoo", "PostgreSQL", "Migración de datos"]],
+  ["Backend & APIs", ["Java", "Spring Boot", "Node.js", "FastAPI", "REST APIs", "TypeScript"]],
+  ["Frontend", ["React", "Astro", "Next.js", "JavaScript", "HTML", "CSS", "Tailwind"]],
+  ["Datos & BI", ["Power BI", "pandas", "NumPy", "scikit-learn", "SQL Server", "Azure AI"]],
+  ["Infraestructura", ["Linux", "Windows Server", "Docker", "Nginx", "MikroTik", "VPN", "RAID", "Git"]],
 ];
 ---
 <section id="techstack" class="section">
   <div class="container">
     <div class="section-reveal">
       <p class="section-kicker">Stack</p>
-      <h2 class="section-title">Herramientas para construir, operar y medir.</h2>
-      <p class="section-copy">La selección tecnológica está pensada para proyectos reales: interfaces, APIs, datos, automatización, nube e infraestructura de red.</p>
+      <h2 class="section-title">Herramientas para construir, desplegar y sostener.</h2>
+      <p class="section-copy">
+        Selección orientada a sistemas que entran en operación y siguen funcionando: ERP, APIs,
+        datos, contenedores, red y perímetro.
+      </p>
     </div>
 
     <div class="mt-12 grid gap-5 lg:grid-cols-5">
       {groups.map(([title, items], index) => (
-        <article class="section-reveal card card-hover p-5" style={`transition-delay:${index * .07}s; border-top:3px solid ${["var(--teal)", "var(--cobalt)", "var(--amber)", "var(--rose)", "var(--graphite)"][index]}`}>
+        <article class="section-reveal card card-hover p-5" style={`transition-delay:${index * .07}s; border-top:3px solid ${["var(--teal)", "var(--cobalt)", "var(--rose)", "var(--amber)", "var(--graphite)"][index]}`}>
           <h3 class="font-display text-xl font-black">{title}</h3>
           <div class="mt-5 flex flex-wrap gap-2">
             {items.map((item) => <span class="chip">{item}</span>)}

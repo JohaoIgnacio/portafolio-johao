@@ -319,3 +319,239 @@ td, th {
     overflow-wrap: break-word;
   }
 }
+
+/* ---------- Accesibilidad ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 100;
+  padding: 12px 18px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 800;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+  top: 0;
+}
+
+:where(a, button, input, textarea, summary):focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- Botón icono (redes) ---------- */
+.icon-btn {
+  place-items: center;
+  height: 44px;
+  width: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--graphite);
+  transition: color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.icon-btn:hover {
+  color: var(--teal);
+  border-color: rgba(15, 118, 110, .45);
+  transform: translateY(-2px);
+}
+
+/* ---------- Chip "en curso" ---------- */
+.chip-live {
+  border-color: rgba(217, 119, 6, .4);
+  background: rgba(217, 119, 6, .08);
+  color: var(--amber);
+}
+
+.chip-live::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 999px;
+  background: var(--amber);
+  animation: pulse 1.9s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .25; }
+}
+
+/* ---------- Tarjeta de caso de estudio ---------- */
+.case-card {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+  border-left: 3px solid var(--accent, var(--teal));
+}
+
+@media (min-width: 900px) {
+  .case-card {
+    grid-template-columns: 1.55fr .95fr;
+  }
+}
+
+.case-card__body {
+  padding: 30px;
+}
+
+.case-card__num {
+  font-family: "Outfit", "Inter", system-ui, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--accent, var(--teal));
+}
+
+.case-card__results {
+  display: grid;
+  align-content: center;
+  gap: 22px;
+  padding: 30px;
+  background: var(--mist);
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 900px) {
+  .case-card__results {
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+}
+
+.case-card__results strong {
+  display: block;
+  font-family: "Outfit", "Inter", system-ui, sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--accent, var(--teal));
+}
+
+.case-card__results span {
+  display: block;
+  margin-top: 6px;
+  color: var(--graphite);
+  font-size: .82rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.case-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .85rem;
+  font-weight: 800;
+  color: var(--accent, var(--teal));
+}
+
+.case-card:hover .case-card__cta svg {
+  transform: translateX(4px);
+}
+
+.case-card__cta svg {
+  transition: transform .2s ease;
+}
+
+/* ---------- Cuerpo del caso de estudio ---------- */
+.case-prose {
+  max-width: 760px;
+}
+
+.case-prose h2 {
+  margin: 56px 0 0;
+  font-family: "Outfit", "Inter", system-ui, sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.case-prose h2:first-child {
+  margin-top: 0;
+}
+
+.case-prose h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-top: 14px;
+  background: var(--accent, var(--teal));
+}
+
+.case-prose p {
+  margin: 18px 0 0;
+  color: var(--graphite);
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.case-prose ul {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.case-prose li {
+  padding-left: 16px;
+  border-left: 2px solid var(--line);
+  color: var(--graphite);
+  line-height: 1.7;
+}
+
+.case-prose strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+/* ---------- Bloques desplegables ---------- */
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+  float: right;
+  font-family: "Outfit", "Inter", system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--teal);
+}
+
+details[open] summary::after {
+  content: "–";
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .section-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-card__body,
+  .case-card__results {
+    padding: 22px;
+  }
+}

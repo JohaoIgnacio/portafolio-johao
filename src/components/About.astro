@@ -1,63 +1,80 @@
 ---
-const profile = [
-  ["Rol actual", "Project Manager - Corp. inmobiliaria"],
-  ["Ubicación", "Chiclayo, Lambayeque, Perú"],
-  ["Email", "johaoignaciob@gmail.com"],
-  ["Teléfono", "+51 932 215 727"],
+import { perfil } from "../data/perfil";
+
+const datos = [
+  ["Rol actual", "Project Manager · Corporación inmobiliaria"],
+  ["Especialidad", "Odoo / ERP, infraestructura y automatización"],
+  ["Formación ejecutiva", "Harvard DCE · Strategic Project Management y Business Analytics"],
+  ["Ubicación", `${perfil.ubicacion} · Remoto`],
+  ["Idiomas", "Español nativo · Inglés avanzado"],
 ];
 
-const highlights = [
-  ["Hult Prize UTP 2026", "1er lugar institucional y representante en etapa nacional."],
-  ["Automatización inmobiliaria", "Gestión de flujos, seguimiento comercial y mejora de procesos internos."],
-  ["Sector público", "Digitalización, redes, automatización y atención ciudadana."],
-  ["Investigación aplicada", "ML, datos y producción de compost orgánico con UTP."],
+const pilares = [
+  [
+    "ERP sobre Odoo",
+    "Implementación funcional y desarrollo técnico: levantamiento de procesos, configuración de módulos estándar y desarrollo de addons propios en Python cuando el estándar no alcanza.",
+  ],
+  [
+    "Infraestructura y servidores",
+    "Estaciones de servidor completas, del hardware al servicio publicado: almacenamiento redundante, respaldo eléctrico, red segmentada, firewall perimetral y VPN.",
+  ],
+  [
+    "Automatización de procesos",
+    "Rutinas en Python, integraciones vía API y flujos que convierten trabajo manual repetitivo en procesos reproducibles y auditables.",
+  ],
+  [
+    "Gestión de proyectos",
+    "Dirección de proyectos técnicos de punta a punta: alcance, stakeholders, entregables y QA. Gestiono el proyecto y también escribo el código.",
+  ],
 ];
 ---
 <section id="about" class="section bg-white">
   <div class="container">
     <div class="section-reveal">
       <p class="section-kicker">Perfil</p>
-      <h2 class="section-title">Un perfil técnico con mentalidad de gestión y automatización.</h2>
+      <h2 class="section-title">Ingeniero que implanta sistemas y gerente que los lleva a producción.</h2>
       <p class="section-copy">
-        Combino gestión de proyectos, ingeniería full stack, analítica de datos e infraestructura. Mi trabajo se concentra en convertir procesos manuales en sistemas medibles, mantenibles y útiles para equipos reales.
+        Ingeniero de Sistemas de Información con más de dos años de experiencia progresiva en ERP,
+        infraestructura y transformación digital. Mi trabajo consiste en convertir procesos manuales
+        en sistemas medibles, mantenibles y realmente usados por el equipo que los recibe.
       </p>
     </div>
 
-    <div class="mt-12 grid gap-6 lg:grid-cols-[.85fr_1.15fr]">
-      <aside class="section-reveal card p-6">
-        <div class="rounded-[8px] bg-[#f2f2f0] p-3">
-          <img src="/johao-profile.jpg" alt="Johao Ignacio en traje formal" class="h-[460px] w-full rounded-[6px] object-contain object-center" />
-        </div>
-        <h3 class="font-display mt-6 text-2xl font-black">Johao Fabrizio</h3>
-        <p class="mt-1 text-sm font-semibold text-[var(--teal)]">Ignacio Bernal</p>
-        <div class="mt-6 grid gap-3">
-          {profile.map(([label, value]) => (
+    <div class="mt-12 grid gap-6 lg:grid-cols-[.8fr_1.2fr]">
+      <aside class="section-reveal card p-7">
+        <h3 class="font-display text-2xl font-black leading-tight">
+          Del levantamiento de procesos al servidor en producción.
+        </h3>
+        <p class="mt-4 text-sm leading-7 text-[var(--muted)]">
+          El perfil poco común no es saber Odoo ni saber redes por separado, sino cubrir el recorrido
+          completo: entender el proceso de negocio, decidir qué se configura y qué se desarrolla,
+          escribir el módulo, desplegarlo sobre infraestructura propia y sostenerlo en operación.
+        </p>
+
+        <div class="mt-7 grid gap-3">
+          {datos.map(([label, value]) => (
             <div class="border-t border-[var(--line)] pt-3">
               <span class="block text-xs font-extrabold uppercase tracking-[.14em] text-[var(--muted)]">{label}</span>
               <span class="mt-1 block text-sm font-bold text-[var(--ink)]">{value}</span>
             </div>
           ))}
         </div>
+
+        <div class="mt-7 flex flex-wrap gap-2">
+          <a href={perfil.linkedin} target="_blank" rel="noopener noreferrer" class="chip">LinkedIn</a>
+          <a href={perfil.github} target="_blank" rel="noopener noreferrer" class="chip">GitHub</a>
+          <a href={perfil.cv} download class="chip">CV en PDF</a>
+        </div>
       </aside>
 
-      <div class="section-reveal grid content-start gap-5" style="transition-delay:.1s">
-        <div class="card p-7">
-          <p class="text-lg leading-8 text-[var(--graphite)]">
-            Ingeniero de Sistemas de Información con más de 2 años de experiencia progresiva en desarrollo de software empresarial, transformación digital y liderazgo de equipos técnicos.
-          </p>
-          <p class="mt-5 leading-8 text-[var(--muted)]">
-            Actualmente trabajo como Project Manager en una corporación inmobiliaria, impulsando automatizaciones, seguimiento operativo y mejoras en procesos comerciales. Mantengo además experiencia en CRM, gestión municipal, BI financiero, OCR, redes institucionales, Azure AI y automatización de procesos.
-          </p>
-        </div>
-
-        <div class="grid gap-4 sm:grid-cols-2">
-          {highlights.map(([title, text], index) => (
-            <article class="card card-hover p-5" style={`border-top:3px solid ${["var(--teal)", "var(--cobalt)", "var(--amber)", "var(--rose)"][index]}`}>
-              <h3 class="font-display text-lg font-extrabold">{title}</h3>
-              <p class="mt-2 text-sm leading-6 text-[var(--muted)]">{text}</p>
-            </article>
-          ))}
-        </div>
+      <div class="section-reveal grid content-start gap-4 sm:grid-cols-2" style="transition-delay:.1s">
+        {pilares.map(([title, text], index) => (
+          <article class="card card-hover p-6" style={`border-top:3px solid ${["var(--teal)", "var(--graphite)", "var(--rose)", "var(--cobalt)"][index]}`}>
+            <span class="text-sm font-black text-[var(--teal)]">0{index + 1}</span>
+            <h3 class="font-display mt-3 text-xl font-extrabold leading-tight">{title}</h3>
+            <p class="mt-3 text-sm leading-6 text-[var(--muted)]">{text}</p>
+          </article>
+        ))}
       </div>
     </div>
   </div>

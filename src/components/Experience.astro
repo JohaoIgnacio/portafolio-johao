@@ -1,49 +1,84 @@
 ---
+/**
+ * TODO Johao: confirma el mes de inicio en la corporación inmobiliaria y decide si
+ * puedes nombrarla. Un empleador anónimo junto a otros con nombre genera dudas;
+ * si hay acuerdo de confidencialidad conviene decirlo explícitamente.
+ */
 const experiences = [
   {
-    role: "Project Manager - Automatización y Operaciones",
-    company: "Corporación inmobiliaria",
-    period: "Actualidad",
+    role: "Project Manager · ERP, Automatización y Operaciones",
+    company: "Corporación inmobiliaria (nombre reservado)",
+    period: "2025 - Presente",
     location: "Chiclayo, Lambayeque, Perú",
-    summary: "Gestión de proyectos internos orientados a automatizar procesos comerciales, seguimiento operativo y mejora continua en una corporación del sector inmobiliario.",
-    points: ["Coordinación de iniciativas entre equipos comerciales, administrativos y técnicos.", "Automatización de flujos de trabajo para reducir tareas manuales.", "Seguimiento de indicadores, entregables y cumplimiento operativo."],
-    tags: ["Project Management", "Automatización", "CRM", "Procesos", "Reporting"],
+    summary:
+      "Dirección de los proyectos internos de tecnología: implantación y desarrollo del ERP sobre Odoo, automatización de procesos comerciales y administrativos, y seguimiento operativo de las áreas.",
+    points: [
+      "Implementación funcional de Odoo y desarrollo de módulos propios en Python.",
+      "Migración y depuración de los datos históricos hacia el ERP.",
+      "Coordinación entre equipos comerciales, administrativos y técnicos.",
+      "Automatización de flujos de trabajo que antes se ejecutaban a mano.",
+      "Reportería de dirección generada por el sistema, no consolidada manualmente.",
+      "Seguimiento de indicadores, entregables y cumplimiento operativo.",
+    ],
+    tags: ["Odoo", "Python", "PostgreSQL", "Project Management", "Automatización", "CRM"],
   },
   {
-    role: "CEO & Fundador | Gerente de Proyectos | Lead Developer",
+    role: "CEO y Fundador · Gerente de Proyectos y Lead Developer",
     company: "Mantaro Systems SAC",
     period: "Nov 2025 - Presente",
     location: "Chiclayo, Lambayeque, Perú",
-    summary: "Lidera proyectos de transformación digital con Azure AI, desarrollo web, datos e infraestructura.",
-    points: ["Ganador del fondo semilla Reactiva Cultura por USD 5,000.", "Propuesta CDP de USD 150,000 seleccionada para Fase 2.", "Mejoras operativas estimadas entre 25% y 40% en organizaciones cliente."],
-    tags: ["Azure AI", "React", "Python", "PostgreSQL", "Scrum"],
+    summary:
+      "Empresa propia desde la que se formalizó la práctica consultora: proyectos de transformación digital, ERP, infraestructura y datos para organizaciones públicas y privadas.",
+    points: [
+      "Ganador del fondo semilla Reactiva Cultura por USD 5,000.",
+      "Propuesta CDP de USD 150,000 seleccionada para Fase 2.",
+      "Responsable de la arquitectura de solución y del equipo técnico.",
+      "Mejoras operativas estimadas entre 25% y 40% en organizaciones cliente.",
+    ],
+    tags: ["Odoo", "Azure AI", "React", "Python", "PostgreSQL", "Scrum"],
   },
   {
-    role: "Asistente de Investigación - IA & Sistemas",
+    role: "Asistente de Investigación · IA y Sistemas",
     company: "Universidad Tecnológica del Perú",
     period: "Abr 2025 - Presente",
     location: "Lima / Chiclayo, Perú",
-    summary: "Desarrollo de modelos, pipelines y reportes para proyectos académicos de optimización y producción sostenible.",
-    points: ["Reducción simulada de costos logísticos en 22%.", "Más de 500 puntos de datos analizados.", "Tres informes técnicos para respaldo de publicaciones."],
-    tags: ["Python", "ML", "pandas", "Power BI"],
+    summary:
+      "Desarrollo de modelos, pipelines y reportes para proyectos académicos de optimización y producción sostenible.",
+    points: [
+      "Reducción simulada de costos logísticos en 22%.",
+      "Más de 500 puntos de datos analizados y documentados.",
+      "Tres informes técnicos de respaldo para publicación.",
+    ],
+    tags: ["Python", "scikit-learn", "pandas", "Power BI"],
+  },
+  {
+    role: "Desarrollador Full Stack y Administrador de Infraestructura",
+    company: "Municipalidad Distrital de Reque",
+    period: "Ene 2024 - Dic 2024",
+    location: "Reque, Chiclayo, Perú",
+    summary:
+      "Responsable técnico de los sistemas y de la infraestructura municipal completa: del servidor y la red al software que corre encima.",
+    points: [
+      "Montaje de la estación de servidor: RAID 1, UPS y Windows Server.",
+      "Planta de red de 40 nodos con cableado Cat6, WiFi 6 y segmentación.",
+      "Firewall perimetral y VPN sobre MikroTik; cero incidentes en 12 meses.",
+      "Sistema de registro civil y digitalización con OCR del archivo histórico.",
+      "Cinco procesos institucionales automatizados; optimización del 30%.",
+    ],
+    tags: ["Windows Server", "MikroTik", "VPN", "Java", "Spring Boot", "Python"],
   },
   {
     role: "Consultor Tecnológico Independiente",
     company: "Freelance",
-    period: "Ene 2024 - Jun 2025",
+    period: "Ene 2024 - Oct 2025",
     location: "Chiclayo, Lambayeque, Perú",
-    summary: "Práctica consultora con proyectos municipales, ONG y clientes privados.",
-    points: ["Entrega de proyectos full cycle con 100% de cumplimiento en plazo.", "Responsable de PM, desarrollo y QA.", "Relaciones comerciales recurrentes formalizadas bajo Mantaro Systems."],
-    tags: ["Java", "Spring Boot", "Node.js", "SQL Server"],
-  },
-  {
-    role: "Desarrollador Full Stack & Administrador de Redes",
-    company: "Municipalidad Distrital de Reque",
-    period: "Ene 2024 - Dic 2024",
-    location: "Reque, Chiclayo, Perú",
-    summary: "Automatización de procesos institucionales, sistemas integrados y operación de red municipal.",
-    points: ["Optimización de procesos municipales en 30%.", "Cinco procesos clave automatizados.", "Cero incidentes de seguridad durante 12 meses."],
-    tags: ["Full Stack", "MikroTik", "VPN", "Windows Server"],
+    summary:
+      "Práctica consultora con proyectos municipales, ONG y clientes privados, formalizada posteriormente bajo Mantaro Systems SAC.",
+    points: [
+      "Entrega de proyectos de ciclo completo asumiendo PM, desarrollo y QA.",
+      "Relaciones comerciales recurrentes que dieron origen a la empresa.",
+    ],
+    tags: ["Java", "Spring Boot", "Node.js", "SQL Server", "React"],
   },
 ];
 ---
@@ -70,7 +105,7 @@ const experiences = [
               </div>
             </div>
 
-            <ul class="mt-5 grid gap-2 text-sm leading-6 text-[var(--graphite)] md:grid-cols-3">
+            <ul class="mt-5 grid gap-2 text-sm leading-6 text-[var(--graphite)] md:grid-cols-2">
               {exp.points.map((point) => <li class="border-l-2 border-[var(--teal)] pl-3">{point}</li>)}
             </ul>
 
