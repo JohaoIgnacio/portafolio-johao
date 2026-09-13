@@ -1,14 +1,19 @@
 ---
-/** Despliegue de referencia de Odoo. Arquitectura estándar, sin datos del cliente. */
+/**
+ * Esquema de referencia del CRM Odoo y lo construido alrededor.
+ * Sin URLs, credenciales, nombres de personas ni datos de negocio.
+ */
 ---
 <figure class="diagram-figure">
   <div class="diagram-wrap">
-    <svg class="diagram" viewBox="0 0 880 430" role="img" aria-labelledby="d-erp-title d-erp-desc">
-      <title id="d-erp-title">Despliegue de referencia del ERP sobre Odoo</title>
+    <svg class="diagram" viewBox="0 0 880 500" role="img" aria-labelledby="d-erp-title d-erp-desc">
+      <title id="d-erp-title">Esquema del CRM Odoo y los componentes construidos alrededor</title>
       <desc id="d-erp-desc">
-        Los usuarios acceden a través de un proxy inverso Nginx con TLS al contenedor de Odoo, que
-        combina módulos estándar con addons propios versionados en Git y se apoya en PostgreSQL y un
-        filestore, ambos respaldados de forma automática.
+        Los leads entran desde publicidad, WhatsApp y formularios, pasan por un motor de atribución
+        que etiqueta su campaña de origen y llegan a Odoo 19 Enterprise, alojado por el partner que
+        hizo la implantación original. Alrededor del núcleo se construyeron automatizaciones
+        propias, tableros ejecutivos con conteo en servidor y bots de mensajería sobre n8n. Los
+        contratos y la cobranza viven en un sistema aparte que no está integrado con Odoo.
       </desc>
 
       <defs>
@@ -17,63 +22,85 @@
         </marker>
       </defs>
 
-      <!-- Repositorio Git -->
-      <rect class="box" x="410" y="24" width="200" height="64" rx="8" />
-      <text class="lbl" x="510" y="48" text-anchor="middle">Repositorio Git</text>
-      <text class="sub" x="510" y="68" text-anchor="middle">Addons versionados</text>
+      <!-- Entradas -->
+      <rect class="box" x="20" y="74" width="150" height="50" rx="8" />
+      <text class="sub-strong" x="95" y="104" text-anchor="middle">Meta Ads</text>
 
-      <!-- Usuarios -->
-      <rect class="box" x="20" y="172" width="140" height="76" rx="8" />
-      <text class="lbl" x="90" y="200" text-anchor="middle">Usuarios</text>
-      <text class="sub" x="90" y="220" text-anchor="middle">Comercial · Admin</text>
-      <text class="sub" x="90" y="236" text-anchor="middle">Dirección</text>
+      <rect class="box" x="20" y="146" width="150" height="50" rx="8" />
+      <text class="sub-strong" x="95" y="176" text-anchor="middle">WhatsApp Business</text>
 
-      <!-- Nginx -->
-      <rect class="box" x="205" y="172" width="160" height="76" rx="8" />
-      <text class="lbl" x="285" y="203" text-anchor="middle">Nginx</text>
-      <text class="sub" x="285" y="224" text-anchor="middle">Proxy inverso · TLS</text>
+      <rect class="box" x="20" y="218" width="150" height="50" rx="8" />
+      <text class="sub-strong" x="95" y="248" text-anchor="middle">Formularios</text>
+
+      <!-- Atribución -->
+      <rect class="box box-accent" x="212" y="130" width="168" height="82" rx="8" />
+      <text class="lbl" x="296" y="158" text-anchor="middle">Atribución</text>
+      <text class="sub" x="296" y="178" text-anchor="middle">Etiqueta cada lead</text>
+      <text class="sub" x="296" y="195" text-anchor="middle">con su campaña</text>
 
       <!-- Odoo -->
-      <rect class="box box-accent" x="410" y="130" width="200" height="160" rx="8" />
-      <text class="lbl" x="510" y="158" text-anchor="middle">Odoo · contenedor</text>
-      <rect class="box" x="428" y="176" width="164" height="44" rx="6" />
-      <text class="sub-strong" x="510" y="203" text-anchor="middle">Módulos estándar</text>
-      <rect class="box" x="428" y="230" width="164" height="44" rx="6" />
-      <text class="sub-strong" x="510" y="250" text-anchor="middle">Addons propios</text>
-      <text class="sub" x="510" y="266" text-anchor="middle">Python</text>
+      <rect class="box box-accent" x="418" y="56" width="200" height="238" rx="8" />
+      <text class="lbl" x="518" y="84" text-anchor="middle">Odoo 19 Enterprise</text>
+      <text class="sub" x="518" y="103" text-anchor="middle">Alojado por el partner</text>
+      <rect class="box" x="436" y="116" width="164" height="38" rx="6" />
+      <text class="sub-strong" x="518" y="140" text-anchor="middle">CRM</text>
+      <rect class="box" x="436" y="160" width="164" height="38" rx="6" />
+      <text class="sub-strong" x="518" y="184" text-anchor="middle">Proyecto</text>
+      <rect class="box" x="436" y="204" width="164" height="38" rx="6" />
+      <text class="sub-strong" x="518" y="228" text-anchor="middle">Inventario</text>
+      <rect class="box" x="436" y="248" width="164" height="38" rx="6" />
+      <text class="sub-strong" x="518" y="272" text-anchor="middle">Studio</text>
 
-      <!-- PostgreSQL -->
-      <rect class="box" x="660" y="130" width="180" height="72" rx="8" />
-      <text class="lbl" x="750" y="160" text-anchor="middle">PostgreSQL</text>
-      <text class="sub" x="750" y="180" text-anchor="middle">Datos del ERP</text>
+      <!-- Automatizaciones propias -->
+      <rect class="box box-accent" x="418" y="334" width="200" height="130" rx="8" />
+      <text class="lbl" x="518" y="362" text-anchor="middle">Construido encima</text>
+      <text class="sub" x="518" y="386" text-anchor="middle">Motor de SLA y</text>
+      <text class="sub" x="518" y="403" text-anchor="middle">reasignación automática</text>
+      <text class="sub" x="518" y="424" text-anchor="middle">Regla genérica por</text>
+      <text class="sub" x="518" y="441" text-anchor="middle">metadatos de etapa</text>
+      <text class="sub" x="518" y="458" text-anchor="middle">Modelo de citas propio</text>
 
-      <!-- Filestore -->
-      <rect class="box" x="660" y="220" width="180" height="72" rx="8" />
-      <text class="lbl" x="750" y="250" text-anchor="middle">Filestore</text>
-      <text class="sub" x="750" y="270" text-anchor="middle">Documentos adjuntos</text>
+      <!-- Tableros -->
+      <rect class="box" x="666" y="66" width="194" height="94" rx="8" />
+      <text class="lbl" x="763" y="94" text-anchor="middle">Tableros ejecutivos</text>
+      <text class="sub" x="763" y="116" text-anchor="middle">Conteo en el servidor</text>
+      <text class="sub" x="763" y="133" text-anchor="middle">mediante pivots</text>
+      <text class="sub" x="763" y="150" text-anchor="middle">5 en producción</text>
 
-      <!-- Respaldos -->
-      <rect class="box" x="660" y="336" width="180" height="64" rx="8" />
-      <text class="lbl" x="750" y="362" text-anchor="middle">Respaldos</text>
-      <text class="sub" x="750" y="382" text-anchor="middle">Base y filestore</text>
+      <!-- n8n -->
+      <rect class="box" x="666" y="196" width="194" height="94" rx="8" />
+      <text class="lbl" x="763" y="224" text-anchor="middle">Bots sobre n8n</text>
+      <text class="sub" x="763" y="246" text-anchor="middle">Agente conversacional</text>
+      <text class="sub" x="763" y="263" text-anchor="middle">Recordatorios de citas</text>
+      <text class="sub" x="763" y="280" text-anchor="middle">Avisos de cobranza</text>
+
+      <!-- Sistema aparte -->
+      <rect class="zone" x="648" y="334" width="212" height="130" rx="10" />
+      <text class="zlbl" x="754" y="360" text-anchor="middle">SISTEMA APARTE</text>
+      <text class="lbl" x="754" y="390" text-anchor="middle">PostgreSQL + NocoDB</text>
+      <text class="sub" x="754" y="412" text-anchor="middle">Contratos y cobranza</text>
+      <text class="sub" x="754" y="436" text-anchor="middle">No integrado con Odoo.</text>
+      <text class="sub" x="754" y="453" text-anchor="middle">Migración en diseño.</text>
 
       <!-- Flujos -->
-      <path class="flow" marker-end="url(#a-erp)" d="M160 210 H198" />
-      <path class="flow" marker-end="url(#a-erp)" d="M365 210 H403" />
-      <path class="flow" marker-end="url(#a-erp)" d="M610 172 H653" />
-      <path class="flow" marker-end="url(#a-erp)" d="M610 250 H653" />
-      <path class="flow flow-accent" marker-end="url(#a-erp)" d="M510 88 V124" />
-      <path class="flow" marker-end="url(#a-erp)" d="M750 292 V330" />
-      <path class="flow" marker-end="url(#a-erp)" d="M840 166 C866 166 866 368 848 368" />
+      <path class="flow" marker-end="url(#a-erp)" d="M170 99 C195 99 195 158 205 158" />
+      <path class="flow" marker-end="url(#a-erp)" d="M170 171 H205" />
+      <path class="flow" marker-end="url(#a-erp)" d="M170 243 C195 243 195 186 205 186" />
+      <path class="flow" marker-end="url(#a-erp)" d="M380 171 H411" />
+      <path class="flow flow-accent" marker-end="url(#a-erp)" d="M518 334 V300" />
+      <path class="flow" marker-end="url(#a-erp)" d="M618 113 H659" />
+      <path class="flow" marker-end="url(#a-erp)" d="M618 232 H659" />
+      <path class="flow" marker-end="url(#a-erp)" d="M659 262 H625" />
 
-      <text class="note" x="20" y="44">Entorno de pruebas espejo:</text>
-      <text class="note" x="20" y="64">cada cambio se valida sobre</text>
-      <text class="note" x="20" y="84">una copia antes de llegar</text>
-      <text class="note" x="20" y="104">a producción.</text>
+      <text class="note" x="20" y="392">El ERP lo implantó un partner</text>
+      <text class="note" x="20" y="412">externo. Lo que aparece en verde</text>
+      <text class="note" x="20" y="432">es lo que audité, rediseñé o</text>
+      <text class="note" x="20" y="452">construí sobre el sistema vivo.</text>
     </svg>
   </div>
   <figcaption>
-    Despliegue de referencia. El core de Odoo se mantiene intacto: toda personalización vive en
-    addons propios versionados, de modo que actualizar de versión sigue siendo posible.
+    Esquema de referencia, sin URLs, credenciales ni datos de negocio. Las cajas destacadas son lo
+    que construí o rediseñé; el núcleo de Odoo y su alojamiento son del partner que hizo la
+    implantación original.
   </figcaption>
 </figure>
