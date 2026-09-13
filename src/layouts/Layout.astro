@@ -14,8 +14,12 @@ const {
   image = "/johao-profile.jpg",
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, perfil.sitio).href;
-const ogImage = new URL(image, perfil.sitio).href;
+/**
+ * Solo emitimos URLs absolutas cuando `site` está configurado en astro.config.mjs.
+ * Una canónica que apunta a un dominio equivocado es peor que no tener canónica.
+ */
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : null;
+const ogImage = Astro.site ? new URL(image, Astro.site).href : image;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -24,7 +28,7 @@ const jsonLd = {
   jobTitle: perfil.titular,
   email: `mailto:${perfil.email}`,
   telephone: perfil.telefono,
-  url: perfil.sitio,
+  ...(canonical ? { url: canonical } : {}),
   image: ogImage,
   sameAs: [perfil.linkedin, perfil.github],
   address: {
@@ -56,7 +60,7 @@ const jsonLd = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href={canonical} />
+    {canonical && <link rel="canonical" href={canonical} />}
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -69,7 +73,7 @@ const jsonLd = {
     <meta property="og:type" content="profile" />
     <meta property="og:site_name" content={perfil.nombre} />
     <meta property="og:locale" content="es_PE" />
-    <meta property="og:url" content={canonical} />
+    {canonical && <meta property="og:url" content={canonical} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />

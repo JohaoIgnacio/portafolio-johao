@@ -7,8 +7,8 @@ const contacts = [
   ["WhatsApp", perfil.telefono, perfil.whatsapp],
   ["LinkedIn", "Perfil profesional", perfil.linkedin],
   ["GitHub", "Repositorios y código", perfil.github],
-  ["CV", "Descargar en PDF", perfil.cv],
   ["Ubicación", `${perfil.ubicacion} · Remoto`, "https://maps.google.com/?q=Chiclayo,Lambayeque,Peru"],
+  ...(perfil.cvDisponible ? [["CV", "Descargar en PDF", perfil.cv]] : []),
 ];
 ---
 <section id="contact" class="section bg-[var(--ink)] text-white">
@@ -71,7 +71,7 @@ const contacts = [
       <aside class="section-reveal rounded-[8px] border border-white/12 bg-white/5 p-6" style="transition-delay:.1s">
         <h3 class="font-display text-2xl font-black">Datos directos</h3>
         <p class="mt-2 text-sm leading-6 text-white/62">
-          Correo y WhatsApp son los canales más rápidos. El CV en PDF está disponible para descarga directa.
+          Correo y WhatsApp son los canales más rápidos. Respondo en el día.
         </p>
         <div class="mt-6 grid gap-3">
           {contacts.map(([label, value, href]) => (

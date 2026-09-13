@@ -63,7 +63,7 @@ const pilares = [
         <div class="mt-7 flex flex-wrap gap-2">
           <a href={perfil.linkedin} target="_blank" rel="noopener noreferrer" class="chip">LinkedIn</a>
           <a href={perfil.github} target="_blank" rel="noopener noreferrer" class="chip">GitHub</a>
-          <a href={perfil.cv} download class="chip">CV en PDF</a>
+          {perfil.cvDisponible && <a href={perfil.cv} download class="chip">CV en PDF</a>}
         </div>
       </aside>
 
