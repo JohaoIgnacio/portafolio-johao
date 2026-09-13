@@ -1,26 +1,32 @@
 ---
 /**
- * TODO Johao: confirma el mes de inicio en la corporación inmobiliaria y decide si
- * puedes nombrarla. Un empleador anónimo junto a otros con nombre genera dudas;
- * si hay acuerdo de confidencialidad conviene decirlo explícitamente.
+ * TODO Johao: tres cosas en la entrada de la corporación inmobiliaria.
+ *  1. Mes de inicio como Jefe de TI, y si puedes nombrar a la empresa. Un empleador
+ *     anónimo junto a otros con nombre genera dudas; si hay NDA, conviene decirlo.
+ *  2. Si pasaste de Project Manager a Jefe de TI en la misma empresa, conviene
+ *     partir esto en DOS entradas con sus fechas. Una promoción interna es de las
+ *     señales más fuertes que puede dar un CV, y ahora mismo no se ve.
+ *  3. Tamaño del equipo a tu cargo y presupuesto que gestionas, si son públicos.
  */
 const experiences = [
   {
-    role: "Project Manager · ERP, Automatización y Operaciones",
+    role: "Jefe de TI",
     company: "Corporación inmobiliaria (nombre reservado)",
     period: "2025 - Presente",
     location: "Chiclayo, Lambayeque, Perú",
     summary:
-      "Dirección de los proyectos internos de tecnología: implantación y desarrollo del ERP sobre Odoo, automatización de procesos comerciales y administrativos, y seguimiento operativo de las áreas.",
+      "Responsable del área de tecnología de la corporación: defino las prioridades tecnológicas, respondo por la continuidad y la seguridad de la operación, y lidero la implantación y el desarrollo del ERP sobre Odoo.",
     points: [
+      "Dirección del área de TI: prioridades, proveedores y continuidad operativa.",
       "Implementación funcional de Odoo y desarrollo de módulos propios en Python.",
       "Migración y depuración de los datos históricos hacia el ERP.",
-      "Coordinación entre equipos comerciales, administrativos y técnicos.",
-      "Automatización de flujos de trabajo que antes se ejecutaban a mano.",
-      "Reportería de dirección generada por el sistema, no consolidada manualmente.",
+      "Infraestructura y seguridad: accesos por rol, respaldos y disponibilidad.",
+      "Automatización de flujos que antes se ejecutaban a mano.",
+      "Reportería de dirección generada por el sistema, no consolidada a mano.",
+      "Interlocución con gerencia y con las áreas comercial y administrativa.",
       "Seguimiento de indicadores, entregables y cumplimiento operativo.",
     ],
-    tags: ["Odoo", "Python", "PostgreSQL", "Project Management", "Automatización", "CRM"],
+    tags: ["Dirección de TI", "Odoo", "Python", "PostgreSQL", "Infraestructura", "Automatización"],
   },
   {
     role: "CEO y Fundador · Gerente de Proyectos y Lead Developer",

@@ -4,7 +4,7 @@
  */
 export const perfil = {
   nombre: "Johao Fabrizio Ignacio Bernal",
-  titular: "Consultor Odoo / ERP · Infraestructura · Project Manager",
+  titular: "Jefe de TI · Odoo / ERP · Infraestructura",
   email: "johaoignaciob@gmail.com",
   telefono: "+51 932 215 727",
   whatsapp: "https://wa.me/51932215727",
