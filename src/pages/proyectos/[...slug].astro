@@ -1,0 +1,118 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Contact from "../../components/Contact.astro";
+import ErpOdoo from "../../components/diagramas/ErpOdoo.astro";
+import Infraestructura from "../../components/diagramas/Infraestructura.astro";
+import Crm from "../../components/diagramas/Crm.astro";
+import GobiernoDigital from "../../components/diagramas/GobiernoDigital.astro";
+import Automatizacion from "../../components/diagramas/Automatizacion.astro";
+
+const diagramas = {
+  "erp-odoo": ErpOdoo,
+  "infraestructura": Infraestructura,
+  "crm": Crm,
+  "gobierno-digital": GobiernoDigital,
+  "automatizacion": Automatizacion,
+};
+
+export async function getStaticPaths() {
+  const proyectos = await getCollection("proyectos");
+  return proyectos.map((proyecto) => ({
+    params: { slug: proyecto.id },
+    props: { proyecto },
+  }));
+}
+
+const { proyecto } = Astro.props;
+const { Content } = await render(proyecto);
+const d = proyecto.data;
+
+const accentVar = {
+  teal: "var(--teal)",
+  cobalt: "var(--cobalt)",
+  amber: "var(--amber)",
+  rose: "var(--rose)",
+  graphite: "var(--graphite)",
+} as const;
+
+const Diagrama = d.diagram ? diagramas[d.diagram] : null;
+
+const ficha = [
+  ["Cliente", d.client],
+  ["Rol", d.role],
+  ["Periodo", d.period],
+  ["Categoría", d.category],
+];
+---
+<Layout
+  title={`${d.title} | Johao Ignacio Bernal`}
+  description={d.summary}
+>
+  <Navbar />
+  <main style={`--accent:${accentVar[d.accent]}`}>
+    <article>
+      <header class="section pt-32">
+        <div class="container">
+          <a href="/#portfolio" class="inline-flex items-center gap-2 text-sm font-bold text-[var(--muted)] transition-colors hover:text-[var(--teal)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M19 12H5m6 6-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Volver a proyectos
+          </a>
+
+          <p class="section-kicker mt-8">{d.category}</p>
+          <h1 class="section-title font-display max-w-4xl font-black">{d.title}</h1>
+          <p class="section-copy text-lg leading-8 text-[var(--graphite)]">{d.tagline}</p>
+
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {ficha.map(([label, value]) => (
+              <div class="border-t-2 border-[var(--ink)] pt-3">
+                <span class="block text-xs font-extrabold uppercase tracking-[.14em] text-[var(--muted)]">{label}</span>
+                <span class="mt-1 block text-sm font-bold">{value}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-2">
+            {d.stack.map((tech) => <span class="chip">{tech}</span>)}
+          </div>
+        </div>
+      </header>
+
+      <section class="border-y border-[var(--line)] bg-white py-12">
+        <div class="container grid gap-6 md:grid-cols-3">
+          {d.results.map((r) => (
+            <div class="metric" style="border-color:var(--accent)">
+              <strong>{r.value}</strong>
+              <span>{r.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {Diagrama && (
+        <section class="section pb-0">
+          <div class="container">
+            <p class="section-kicker">Arquitectura</p>
+            <h2 class="font-display mt-3 mb-8 text-[clamp(1.7rem,3.2vw,2.4rem)] font-black leading-tight">
+              Cómo está armado
+            </h2>
+            <Diagrama />
+          </div>
+        </section>
+      )}
+
+      <div class="section">
+        <div class="container">
+          <div class="case-prose">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <Contact />
+  </main>
+</Layout>

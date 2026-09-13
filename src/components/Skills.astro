@@ -1,24 +1,85 @@
 ---
-const skills = [
-  ["Dirección técnica", "Liderazgo de equipos, arquitectura de solución, QA y toma de decisiones."],
-  ["Gestión de proyectos", "Scrum, Kanban, comunicación con stakeholders y seguimiento de alcance."],
-  ["Consultoría", "Diagnóstico de procesos, levantamiento de requisitos y priorización de impacto."],
-  ["Comunicación", "Español nativo, inglés avanzado y presentación ejecutiva de resultados."],
+const areas = [
+  {
+    title: "Odoo y ERP",
+    level: "Núcleo",
+    accent: "var(--teal)",
+    items: [
+      "Levantamiento de procesos y mapeo funcional contra módulos estándar",
+      "Configuración de Ventas, CRM, Compras, Inventario y Contabilidad",
+      "Desarrollo de addons propios: modelos, vistas XML, QWeb y ORM",
+      "Reglas de acceso por grupo y reglas de registro por compañía",
+      "Migración y deduplicación de datos históricos",
+      "Despliegue con Docker y versionado de addons en Git",
+    ],
+  },
+  {
+    title: "Backend y datos",
+    level: "Avanzado",
+    accent: "var(--cobalt)",
+    items: [
+      "Python, Java con Spring Boot y Node.js",
+      "Diseño de esquemas y consultas en PostgreSQL y SQL Server",
+      "APIs REST con autenticación y control de acceso por rol",
+      "ETL y analítica con pandas, NumPy y scikit-learn",
+      "Modelado y publicación en Power BI",
+    ],
+  },
+  {
+    title: "Infraestructura y redes",
+    level: "Avanzado",
+    accent: "var(--graphite)",
+    items: [
+      "Montaje de estaciones de servidor: dimensionamiento, RAID y UPS",
+      "Windows Server y Linux en operación real",
+      "Contenedores con Docker y proxy inverso con Nginx y TLS",
+      "MikroTik RouterOS: firewall, segmentación y control de ancho de banda",
+      "VPN, enlaces de radio y cableado estructurado Cat6 / WiFi 6",
+      "Respaldos, monitoreo y documentación de la planta",
+    ],
+  },
+  {
+    title: "Gestión de proyectos",
+    level: "Rol actual",
+    accent: "var(--amber)",
+    items: [
+      "Dirección de proyectos técnicos de punta a punta",
+      "Scrum y Kanban con equipos mixtos de negocio y tecnología",
+      "Definición de alcance, riesgos y criterios de aceptación",
+      "Comunicación con stakeholders no técnicos y reporte a dirección",
+      "QA y validación funcional antes de cada puesta en producción",
+    ],
+  },
 ];
 ---
 <section id="skills" class="section bg-white">
   <div class="container">
     <div class="section-reveal">
-      <p class="section-kicker">Habilidades</p>
-      <h2 class="section-title">Competencias que conectan tecnología con negocio.</h2>
+      <p class="section-kicker">Competencias</p>
+      <h2 class="section-title">Qué sé hacer, con qué profundidad.</h2>
+      <p class="section-copy">
+        Matriz técnica real en lugar de adjetivos. Cada punto corresponde a trabajo hecho en
+        proyectos que llegaron a producción.
+      </p>
     </div>
 
-    <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-      {skills.map(([title, text], index) => (
-        <article class="section-reveal card card-hover p-6" style={`transition-delay:${index * .08}s`}>
-          <span class="text-sm font-black text-[var(--teal)]">0{index + 1}</span>
-          <h3 class="font-display mt-4 text-xl font-black">{title}</h3>
-          <p class="mt-3 text-sm leading-6 text-[var(--muted)]">{text}</p>
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      {areas.map((area, index) => (
+        <article
+          class="section-reveal card card-hover p-7"
+          style={`transition-delay:${index * .07}s; border-top:3px solid ${area.accent}`}
+        >
+          <div class="flex items-start justify-between gap-4">
+            <h3 class="font-display text-2xl font-black leading-tight">{area.title}</h3>
+            <span class="chip shrink-0">{area.level}</span>
+          </div>
+          <ul class="mt-5 grid gap-2.5">
+            {area.items.map((item) => (
+              <li class="border-l-2 pl-3 text-sm leading-6 text-[var(--graphite)]" style={`border-color:${area.accent}`}>
+                {item}
+              </li>
+            ))}
+          </ul>
         </article>
       ))}
     </div>

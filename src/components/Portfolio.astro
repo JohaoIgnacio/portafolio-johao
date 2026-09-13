@@ -1,79 +1,94 @@
 ---
-const projects = [
-  ["01", "Plataforma CRM - Sector Inmobiliario", "React, Java, Spring Boot, PostgreSQL, AWS", "Ciclo lead-to-contract -35%; 50+ usuarios activos"],
-  ["02", "Sistema Digital de Registro Civil", "Java, React, PostgreSQL, Spring Boot", "Consultas de 2-6 horas a menos de 5 minutos"],
-  ["03", "Sistema de Gestión Municipal", "Spring Boot, REST API, React, SQL Server", "Cinco áreas integradas y eliminación del papel"],
-  ["04", "Gestión de Programas Sociales", "Python, PostgreSQL, REST API", "Duplicados detectados y reportes automáticos en menos de 1 minuto"],
-  ["05", "Digitalización de Archivo Civil Histórico", "Python OCR, AWS S3, Fujitsu IX1600", "90%+ del archivo histórico digitalizado"],
-  ["06", "Red LAN/WiFi - 40 nodos", "MikroTik, Cat6, WiFi 6", "100% de conectividad y cero incidentes de red"],
-  ["07", "Dashboard BI Financiero", "Power BI, Python, SQL Server", "Visibilidad financiera en tiempo real para dirección"],
-  ["08", "Plataforma Educativa - ONG", "React, Node.js, Firebase", "120+ jóvenes impactados"],
-  ["09", "Gestión de Compost Orgánico", "Python, ML, PostgreSQL, pandas", "Eficiencia de compostaje +15%"],
-  ["10", "Modelo ML - Cadena de Suministro", "Python, scikit-learn, pandas", "Costos logísticos simulados -22%"],
-  ["11", "Firewall Institucional", "MikroTik, Windows Server", "Cero incidentes de seguridad en 12 meses"],
-  ["12", "Radio-transmisor para oficinas remotas", "TCP/IP, VPN, redes de radio", "Conectividad estable para tres oficinas"],
-  ["13", "Automatización institucional", "Python, REST APIs, SQL", "Errores manuales -25% y atención -30%"],
-  ["14", "Alfabetización Digital", "React, LMS, Firebase", "150+ estudiantes y 20 docentes capacitados"],
-  ["15", "Gestión de Delegados", "Node.js, React, PostgreSQL", "15 delegados coordinados y 3 reconocimientos"],
-  ["16", "Micro-servidor Institucional", "Windows Server, RAID 1, UPS", "99.9% de disponibilidad"],
-  ["17", "Azure AI - Automatización", "Azure Cognitive Services, Python", "Eficiencia de procesos clave +40%"],
-  ["18", "Pipeline de Datos de Investigación", "Python, pandas, Power BI", "500+ datos y 3 informes técnicos"],
-  ["19", "Plataformas Educativas Innovadoras", "React, Moodle, Azure", "Accesibilidad al aprendizaje +40%"],
-];
+import { getCollection } from "astro:content";
+import { otrosProyectos } from "../data/otros-proyectos";
+
+const destacados = (await getCollection("proyectos"))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const accentVar = {
+  teal: "var(--teal)",
+  cobalt: "var(--cobalt)",
+  amber: "var(--amber)",
+  rose: "var(--rose)",
+  graphite: "var(--graphite)",
+} as const;
 ---
 <section id="portfolio" class="section bg-white">
   <div class="container">
-    <div class="section-reveal flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-      <div>
-        <p class="section-kicker">Proyectos</p>
-        <h2 class="section-title">Un portafolio amplio, medible y orientado a operación.</h2>
-        <p class="section-copy">19 entregas cubriendo software empresarial, gobierno digital, infraestructura, datos, educación e inteligencia artificial aplicada.</p>
-      </div>
-      <div class="grid shrink-0 grid-cols-3 gap-3">
-        <span class="chip">19 proyectos</span>
-        <span class="chip">100% en plazo</span>
-        <span class="chip">PM + Dev + QA</span>
-      </div>
+    <div class="section-reveal">
+      <p class="section-kicker">Proyectos</p>
+      <h2 class="section-title">Cinco casos que explican cómo trabajo.</h2>
+      <p class="section-copy">
+        ERP sobre Odoo, infraestructura de servidores, producto a medida, gobierno digital y
+        automatización de procesos. Cada caso incluye el problema real, la arquitectura y las
+        decisiones que determinaron el resultado.
+      </p>
     </div>
 
-    <div class="section-reveal mt-10 hidden overflow-hidden rounded-[8px] border border-[var(--line)] bg-white md:block">
-      <div class="table-wrap">
-        <table class="w-full text-left">
-          <thead class="bg-[var(--mist)]">
-            <tr>
-              <th class="px-4 py-4">#</th>
-              <th class="px-4 py-4">Proyecto</th>
-              <th class="px-4 py-4">Stack</th>
-              <th class="px-4 py-4">Resultado</th>
-            </tr>
-          </thead>
-          <tbody>
-            {projects.map(([id, name, stack, result]) => (
-              <tr class="transition-colors hover:bg-[var(--paper)]">
-                <td class="px-4 py-4 text-sm font-black text-[var(--teal)]">{id}</td>
-                <td class="px-4 py-4 text-sm font-extrabold">{name}</td>
-                <td class="max-w-[280px] px-4 py-4 text-sm text-[var(--muted)]">{stack}</td>
-                <td class="max-w-[330px] px-4 py-4 text-sm font-semibold text-[var(--graphite)]">{result}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="section-reveal mt-8 grid gap-4 md:hidden">
-      {projects.map(([id, name, stack, result]) => (
-        <article class="card p-5">
-          <div class="flex items-start gap-3">
-            <span class="text-sm font-black text-[var(--teal)]">{id}</span>
-            <div>
-              <h3 class="font-display text-lg font-extrabold">{name}</h3>
-              <p class="mt-2 text-sm text-[var(--muted)]">{stack}</p>
-              <p class="mt-2 text-sm font-semibold text-[var(--graphite)]">{result}</p>
+    <div class="mt-12 grid gap-6">
+      {destacados.map((proyecto, index) => (
+        <a
+          href={`/proyectos/${proyecto.id}/`}
+          class="case-card section-reveal card card-hover"
+          style={`transition-delay:${index * .07}s; --accent:${accentVar[proyecto.data.accent]}`}
+        >
+          <div class="case-card__body">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="case-card__num">{String(index + 1).padStart(2, "0")}</span>
+              <span class="chip">{proyecto.data.category}</span>
+              <span class="text-xs font-bold uppercase tracking-[.14em] text-[var(--muted)]">
+                {proyecto.data.period}
+              </span>
             </div>
+
+            <h3 class="font-display mt-5 text-[clamp(1.5rem,2.6vw,2.1rem)] font-black leading-tight">
+              {proyecto.data.title}
+            </h3>
+            <p class="mt-3 max-w-2xl leading-7 text-[var(--graphite)]">{proyecto.data.tagline}</p>
+            <p class="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)]">{proyecto.data.summary}</p>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              {proyecto.data.stack.slice(0, 6).map((tech) => <span class="chip">{tech}</span>)}
+            </div>
+
+            <span class="case-card__cta mt-6">
+              Ver caso completo
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
           </div>
-        </article>
+
+          <div class="case-card__results">
+            {proyecto.data.results.map((r) => (
+              <div>
+                <strong>{r.value}</strong>
+                <span>{r.label}</span>
+              </div>
+            ))}
+          </div>
+        </a>
       ))}
     </div>
+
+    <details class="section-reveal mt-10 card p-6">
+      <summary class="cursor-pointer list-none">
+        <span class="font-display text-xl font-black">Otros {otrosProyectos.length} proyectos entregados</span>
+        <span class="mt-1 block text-sm text-[var(--muted)]">
+          Datos y BI, investigación aplicada, IA en la nube y plataformas educativas. Pulsa para desplegar.
+        </span>
+      </summary>
+
+      <div class="mt-6 grid gap-3">
+        {otrosProyectos.map((p) => (
+          <div class="grid gap-1 border-t border-[var(--line)] pt-3 md:grid-cols-[1.1fr_.9fr_1fr] md:gap-6">
+            <span class="text-sm font-extrabold">{p.name}</span>
+            <span class="text-sm text-[var(--muted)]">{p.stack}</span>
+            <span class="text-sm font-semibold text-[var(--graphite)]">{p.result}</span>
+          </div>
+        ))}
+      </div>
+    </details>
   </div>
 </section>
