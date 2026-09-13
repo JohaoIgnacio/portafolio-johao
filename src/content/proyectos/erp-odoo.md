@@ -3,7 +3,7 @@ title: "Implementación y desarrollo de ERP sobre Odoo"
 tagline: "De procesos dispersos en hojas de cálculo a un ERP único con módulos a medida."
 category: "ERP · Odoo"
 client: "Corporación inmobiliaria"
-role: "Project Manager y desarrollador Odoo"
+role: "Jefe de TI y desarrollador Odoo"
 period: "2025 - Presente"
 summary: "Implantación funcional de Odoo y desarrollo de módulos propios en Python para cubrir los procesos que el estándar no resuelve: seguimiento comercial, control documental y reportería de dirección."
 stack: ["Odoo", "Python", "PostgreSQL", "XML / QWeb", "Docker", "Nginx", "Linux"]
