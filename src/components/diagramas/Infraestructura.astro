@@ -1,0 +1,81 @@
+---
+/** Topología de referencia. Esquema genérico, sin la planta real de ningún cliente. */
+---
+<figure class="diagram-figure">
+  <div class="diagram-wrap">
+    <svg class="diagram" viewBox="0 0 880 460" role="img" aria-labelledby="d-infra-title d-infra-desc">
+      <title id="d-infra-title">Topología de referencia de la infraestructura institucional</title>
+      <desc id="d-infra-desc">
+        El enlace de internet entra por un router MikroTik que actúa como firewall, VPN y control de
+        ancho de banda. Desde ahí la red se divide en tres segmentos separados: administrativa,
+        atención ciudadana e invitados. La estación de servidor cuelga del segmento administrativo.
+      </desc>
+
+      <defs>
+        <marker id="a-infra" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 10 5 0 10z" class="arrow-head" />
+        </marker>
+      </defs>
+
+      <!-- Internet -->
+      <rect class="box" x="20" y="34" width="150" height="64" rx="8" />
+      <text class="lbl" x="95" y="60" text-anchor="middle">Internet</text>
+      <text class="sub" x="95" y="80" text-anchor="middle">Enlace del proveedor</text>
+
+      <!-- MikroTik -->
+      <rect class="box box-accent" x="330" y="24" width="220" height="84" rx="8" />
+      <text class="lbl" x="440" y="52" text-anchor="middle">MikroTik RouterOS</text>
+      <text class="sub" x="440" y="72" text-anchor="middle">Firewall perimetral</text>
+      <text class="sub" x="440" y="90" text-anchor="middle">VPN · QoS · registro de tráfico</text>
+
+      <!-- Oficinas remotas -->
+      <rect class="box" x="700" y="34" width="160" height="64" rx="8" />
+      <text class="lbl" x="780" y="58" text-anchor="middle">Oficinas remotas</text>
+      <text class="sub" x="780" y="78" text-anchor="middle">Radio + VPN</text>
+
+      <!-- Troncal -->
+      <path class="line" d="M440 108 V152" />
+      <path class="line" d="M140 152 H740" />
+      <path class="line" d="M190 152 V190" />
+      <path class="line" d="M440 152 V190" />
+      <path class="line" d="M690 152 V190" />
+
+      <!-- Segmentos -->
+      <rect class="box" x="100" y="190" width="180" height="76" rx="8" />
+      <text class="lbl" x="190" y="218" text-anchor="middle">Red administrativa</text>
+      <text class="sub" x="190" y="238" text-anchor="middle">Equipos de oficina</text>
+      <text class="sub" x="190" y="255" text-anchor="middle">y sistemas internos</text>
+
+      <rect class="box" x="350" y="190" width="180" height="76" rx="8" />
+      <text class="lbl" x="440" y="218" text-anchor="middle">Atención ciudadana</text>
+      <text class="sub" x="440" y="238" text-anchor="middle">Módulos de atención</text>
+      <text class="sub" x="440" y="255" text-anchor="middle">al público</text>
+
+      <rect class="box" x="600" y="190" width="180" height="76" rx="8" />
+      <text class="lbl" x="690" y="218" text-anchor="middle">Red de invitados</text>
+      <text class="sub" x="690" y="238" text-anchor="middle">WiFi 6 sin acceso</text>
+      <text class="sub" x="690" y="255" text-anchor="middle">a recursos internos</text>
+
+      <!-- Servidor -->
+      <path class="flow" marker-end="url(#a-infra)" d="M190 266 V318" />
+      <rect class="box box-accent" x="90" y="324" width="200" height="104" rx="8" />
+      <text class="lbl" x="190" y="352" text-anchor="middle">Estación de servidor</text>
+      <text class="sub" x="190" y="374" text-anchor="middle">Windows Server</text>
+      <text class="sub" x="190" y="392" text-anchor="middle">Almacenamiento RAID 1</text>
+      <text class="sub" x="190" y="410" text-anchor="middle">UPS para apagado ordenado</text>
+
+      <!-- Flujos -->
+      <path class="flow" marker-end="url(#a-infra)" d="M170 66 H323" />
+      <path class="flow" marker-end="url(#a-infra)" d="M550 66 H693" />
+
+      <text class="note" x="350" y="352">Planta de 40 nodos: cableado estructurado</text>
+      <text class="note" x="350" y="372">Cat6 y cobertura inalámbrica WiFi 6.</text>
+      <text class="note" x="350" y="402">Los tres segmentos están separados entre sí;</text>
+      <text class="note" x="350" y="422">ningún equipo de un segmento ve al de otro.</text>
+    </svg>
+  </div>
+  <figcaption>
+    Topología de referencia. Segmentar la red por propósito elimina de raíz clases enteras de
+    problema y cuesta menos que añadir herramientas de seguridad sobre una red plana.
+  </figcaption>
+</figure>

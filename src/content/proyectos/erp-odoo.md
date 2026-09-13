@@ -18,6 +18,7 @@ accent: "teal"
 order: 1
 featured: true
 needsReview: true
+diagram: "erp-odoo"
 ---
 
 ## Contexto

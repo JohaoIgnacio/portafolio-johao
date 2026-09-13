@@ -18,6 +18,7 @@ accent: "graphite"
 order: 2
 featured: true
 needsReview: false
+diagram: "infraestructura"
 ---
 
 ## Contexto

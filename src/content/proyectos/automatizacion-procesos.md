@@ -18,6 +18,7 @@ accent: "rose"
 order: 5
 featured: true
 needsReview: false
+diagram: "automatizacion"
 ---
 
 ## Contexto

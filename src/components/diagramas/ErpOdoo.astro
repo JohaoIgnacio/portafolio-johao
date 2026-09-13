@@ -1,0 +1,79 @@
+---
+/** Despliegue de referencia de Odoo. Arquitectura estándar, sin datos del cliente. */
+---
+<figure class="diagram-figure">
+  <div class="diagram-wrap">
+    <svg class="diagram" viewBox="0 0 880 430" role="img" aria-labelledby="d-erp-title d-erp-desc">
+      <title id="d-erp-title">Despliegue de referencia del ERP sobre Odoo</title>
+      <desc id="d-erp-desc">
+        Los usuarios acceden a través de un proxy inverso Nginx con TLS al contenedor de Odoo, que
+        combina módulos estándar con addons propios versionados en Git y se apoya en PostgreSQL y un
+        filestore, ambos respaldados de forma automática.
+      </desc>
+
+      <defs>
+        <marker id="a-erp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 10 5 0 10z" class="arrow-head" />
+        </marker>
+      </defs>
+
+      <!-- Repositorio Git -->
+      <rect class="box" x="410" y="24" width="200" height="64" rx="8" />
+      <text class="lbl" x="510" y="48" text-anchor="middle">Repositorio Git</text>
+      <text class="sub" x="510" y="68" text-anchor="middle">Addons versionados</text>
+
+      <!-- Usuarios -->
+      <rect class="box" x="20" y="172" width="140" height="76" rx="8" />
+      <text class="lbl" x="90" y="200" text-anchor="middle">Usuarios</text>
+      <text class="sub" x="90" y="220" text-anchor="middle">Comercial · Admin</text>
+      <text class="sub" x="90" y="236" text-anchor="middle">Dirección</text>
+
+      <!-- Nginx -->
+      <rect class="box" x="205" y="172" width="160" height="76" rx="8" />
+      <text class="lbl" x="285" y="203" text-anchor="middle">Nginx</text>
+      <text class="sub" x="285" y="224" text-anchor="middle">Proxy inverso · TLS</text>
+
+      <!-- Odoo -->
+      <rect class="box box-accent" x="410" y="130" width="200" height="160" rx="8" />
+      <text class="lbl" x="510" y="158" text-anchor="middle">Odoo · contenedor</text>
+      <rect class="box" x="428" y="176" width="164" height="44" rx="6" />
+      <text class="sub-strong" x="510" y="203" text-anchor="middle">Módulos estándar</text>
+      <rect class="box" x="428" y="230" width="164" height="44" rx="6" />
+      <text class="sub-strong" x="510" y="250" text-anchor="middle">Addons propios</text>
+      <text class="sub" x="510" y="266" text-anchor="middle">Python</text>
+
+      <!-- PostgreSQL -->
+      <rect class="box" x="660" y="130" width="180" height="72" rx="8" />
+      <text class="lbl" x="750" y="160" text-anchor="middle">PostgreSQL</text>
+      <text class="sub" x="750" y="180" text-anchor="middle">Datos del ERP</text>
+
+      <!-- Filestore -->
+      <rect class="box" x="660" y="220" width="180" height="72" rx="8" />
+      <text class="lbl" x="750" y="250" text-anchor="middle">Filestore</text>
+      <text class="sub" x="750" y="270" text-anchor="middle">Documentos adjuntos</text>
+
+      <!-- Respaldos -->
+      <rect class="box" x="660" y="336" width="180" height="64" rx="8" />
+      <text class="lbl" x="750" y="362" text-anchor="middle">Respaldos</text>
+      <text class="sub" x="750" y="382" text-anchor="middle">Base y filestore</text>
+
+      <!-- Flujos -->
+      <path class="flow" marker-end="url(#a-erp)" d="M160 210 H198" />
+      <path class="flow" marker-end="url(#a-erp)" d="M365 210 H403" />
+      <path class="flow" marker-end="url(#a-erp)" d="M610 172 H653" />
+      <path class="flow" marker-end="url(#a-erp)" d="M610 250 H653" />
+      <path class="flow flow-accent" marker-end="url(#a-erp)" d="M510 88 V124" />
+      <path class="flow" marker-end="url(#a-erp)" d="M750 292 V330" />
+      <path class="flow" marker-end="url(#a-erp)" d="M840 166 C866 166 866 368 848 368" />
+
+      <text class="note" x="20" y="44">Entorno de pruebas espejo:</text>
+      <text class="note" x="20" y="64">cada cambio se valida sobre</text>
+      <text class="note" x="20" y="84">una copia antes de llegar</text>
+      <text class="note" x="20" y="104">a producción.</text>
+    </svg>
+  </div>
+  <figcaption>
+    Despliegue de referencia. El core de Odoo se mantiene intacto: toda personalización vive en
+    addons propios versionados, de modo que actualizar de versión sigue siendo posible.
+  </figcaption>
+</figure>

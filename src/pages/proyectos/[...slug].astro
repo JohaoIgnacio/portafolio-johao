@@ -3,6 +3,19 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Contact from "../../components/Contact.astro";
+import ErpOdoo from "../../components/diagramas/ErpOdoo.astro";
+import Infraestructura from "../../components/diagramas/Infraestructura.astro";
+import Crm from "../../components/diagramas/Crm.astro";
+import GobiernoDigital from "../../components/diagramas/GobiernoDigital.astro";
+import Automatizacion from "../../components/diagramas/Automatizacion.astro";
+
+const diagramas = {
+  "erp-odoo": ErpOdoo,
+  "infraestructura": Infraestructura,
+  "crm": Crm,
+  "gobierno-digital": GobiernoDigital,
+  "automatizacion": Automatizacion,
+};
 
 export async function getStaticPaths() {
   const proyectos = await getCollection("proyectos");
@@ -23,6 +36,8 @@ const accentVar = {
   rose: "var(--rose)",
   graphite: "var(--graphite)",
 } as const;
+
+const Diagrama = d.diagram ? diagramas[d.diagram] : null;
 
 const ficha = [
   ["Cliente", d.client],
@@ -76,6 +91,18 @@ const ficha = [
           ))}
         </div>
       </section>
+
+      {Diagrama && (
+        <section class="section pb-0">
+          <div class="container">
+            <p class="section-kicker">Arquitectura</p>
+            <h2 class="font-display mt-3 mb-8 text-[clamp(1.7rem,3.2vw,2.4rem)] font-black leading-tight">
+              Cómo está armado
+            </h2>
+            <Diagrama />
+          </div>
+        </section>
+      )}
 
       <div class="section">
         <div class="container">

@@ -1,0 +1,66 @@
+---
+/** Flujo de referencia de deduplicación. Esquema genérico, sin datos de ningún padrón real. */
+---
+<figure class="diagram-figure">
+  <div class="diagram-wrap">
+    <svg class="diagram" viewBox="0 0 880 400" role="img" aria-labelledby="d-auto-title d-auto-desc">
+      <title id="d-auto-title">Flujo de referencia del cruce y deduplicación de padrones</title>
+      <desc id="d-auto-desc">
+        Las fuentes de datos se normalizan y cruzan con Python y pandas. Las coincidencias claras se
+        procesan de forma automática; los casos dudosos se derivan a revisión humana. Ambos caminos
+        alimentan el tablero de Power BI.
+      </desc>
+
+      <defs>
+        <marker id="a-auto" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 10 5 0 10z" class="arrow-head" />
+        </marker>
+      </defs>
+
+      <rect class="box" x="20" y="46" width="160" height="58" rx="8" />
+      <text class="sub-strong" x="100" y="80" text-anchor="middle">Padrones</text>
+
+      <rect class="box" x="20" y="128" width="160" height="58" rx="8" />
+      <text class="sub-strong" x="100" y="162" text-anchor="middle">Sistemas internos</text>
+
+      <rect class="box" x="20" y="210" width="160" height="58" rx="8" />
+      <text class="sub-strong" x="100" y="244" text-anchor="middle">Hojas de cálculo</text>
+
+      <rect class="box box-accent" x="250" y="118" width="180" height="80" rx="8" />
+      <text class="lbl" x="340" y="146" text-anchor="middle">Python + pandas</text>
+      <text class="sub" x="340" y="167" text-anchor="middle">Normalización,</text>
+      <text class="sub" x="340" y="184" text-anchor="middle">cruce y deduplicación</text>
+
+      <rect class="box" x="480" y="40" width="200" height="78" rx="8" />
+      <text class="lbl" x="580" y="70" text-anchor="middle">Coincidencia clara</text>
+      <text class="sub" x="580" y="91" text-anchor="middle">Se procesa de forma</text>
+      <text class="sub" x="580" y="108" text-anchor="middle">automática</text>
+
+      <rect class="box box-warn" x="480" y="200" width="200" height="78" rx="8" />
+      <text class="lbl" x="580" y="230" text-anchor="middle">Caso dudoso</text>
+      <text class="sub" x="580" y="251" text-anchor="middle">Se deriva a revisión</text>
+      <text class="sub" x="580" y="268" text-anchor="middle">humana</text>
+
+      <rect class="box" x="720" y="118" width="140" height="80" rx="8" />
+      <text class="lbl" x="790" y="150" text-anchor="middle">Power BI</text>
+      <text class="sub" x="790" y="172" text-anchor="middle">Tablero siempre</text>
+      <text class="sub" x="790" y="189" text-anchor="middle">vigente</text>
+
+      <path class="flow" marker-end="url(#a-auto)" d="M180 75 C215 75 215 145 243 145" />
+      <path class="flow" marker-end="url(#a-auto)" d="M180 157 H243" />
+      <path class="flow" marker-end="url(#a-auto)" d="M180 239 C215 239 215 172 243 172" />
+      <path class="flow" marker-end="url(#a-auto)" d="M430 146 C455 146 455 79 473 79" />
+      <path class="flow" marker-end="url(#a-auto)" d="M430 172 C455 172 455 239 473 239" />
+      <path class="flow" marker-end="url(#a-auto)" d="M680 79 C706 79 706 145 713 145" />
+      <path class="flow" marker-end="url(#a-auto)" d="M680 239 C706 239 706 172 713 172" />
+
+      <text class="note" x="20" y="320">Ninguna baja se ejecuta sin revisión humana: en procesos que afectan a beneficiarios reales,</text>
+      <text class="note" x="20" y="342">el sistema marca el caso dudoso y lo deriva, nunca decide por su cuenta.</text>
+      <text class="note" x="20" y="372">Cada corrida registra qué se procesó, cuándo y con qué resultado, de modo que cualquier cifra se puede reconstruir.</text>
+    </svg>
+  </div>
+  <figcaption>
+    Flujo de referencia. El valor no está tanto en la velocidad como en poder repetir el mismo
+    proceso y obtener el mismo resultado, con rastro de cómo se llegó a cada cifra.
+  </figcaption>
+</figure>

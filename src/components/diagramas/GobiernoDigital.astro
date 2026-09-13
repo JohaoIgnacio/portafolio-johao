@@ -1,0 +1,59 @@
+---
+/** Flujo de referencia de digitalización. Esquema genérico, sin datos del archivo real. */
+---
+<figure class="diagram-figure">
+  <div class="diagram-wrap">
+    <svg class="diagram" viewBox="0 0 880 380" role="img" aria-labelledby="d-gob-title d-gob-desc">
+      <title id="d-gob-title">Flujo de referencia de digitalización del archivo</title>
+      <desc id="d-gob-desc">
+        El archivo físico se escanea, pasa por OCR en Python que extrae únicamente los campos
+        indexables, se verifica por muestreo y termina en dos destinos: un índice consultable en
+        PostgreSQL y la imagen original almacenada sin alterar.
+      </desc>
+
+      <defs>
+        <marker id="a-gob" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 10 5 0 10z" class="arrow-head" />
+        </marker>
+      </defs>
+
+      <rect class="box" x="20" y="148" width="160" height="80" rx="8" />
+      <text class="lbl" x="100" y="180" text-anchor="middle">Archivo físico</text>
+      <text class="sub" x="100" y="201" text-anchor="middle">Libros de actas</text>
+      <text class="sub" x="100" y="218" text-anchor="middle">encuadernados</text>
+
+      <rect class="box" x="222" y="148" width="170" height="80" rx="8" />
+      <text class="lbl" x="307" y="180" text-anchor="middle">Escaneo</text>
+      <text class="sub" x="307" y="201" text-anchor="middle">Producción</text>
+      <text class="sub" x="307" y="218" text-anchor="middle">documental</text>
+
+      <rect class="box box-accent" x="434" y="148" width="180" height="80" rx="8" />
+      <text class="lbl" x="524" y="176" text-anchor="middle">OCR en Python</text>
+      <text class="sub" x="524" y="197" text-anchor="middle">Extrae solo campos</text>
+      <text class="sub" x="524" y="214" text-anchor="middle">indexables</text>
+
+      <rect class="box" x="666" y="44" width="185" height="78" rx="8" />
+      <text class="lbl" x="758" y="74" text-anchor="middle">PostgreSQL</text>
+      <text class="sub" x="758" y="95" text-anchor="middle">Índice consultable</text>
+      <text class="sub" x="758" y="112" text-anchor="middle">por nombre y fecha</text>
+
+      <rect class="box" x="666" y="252" width="185" height="78" rx="8" />
+      <text class="lbl" x="758" y="282" text-anchor="middle">Imagen original</text>
+      <text class="sub" x="758" y="303" text-anchor="middle">Almacenada sin</text>
+      <text class="sub" x="758" y="320" text-anchor="middle">alterar (AWS S3)</text>
+
+      <path class="flow" marker-end="url(#a-gob)" d="M180 188 H215" />
+      <path class="flow" marker-end="url(#a-gob)" d="M392 188 H427" />
+      <path class="flow" marker-end="url(#a-gob)" d="M614 172 C645 172 640 84 659 84" />
+      <path class="flow" marker-end="url(#a-gob)" d="M614 204 C645 204 640 292 659 292" />
+
+      <text class="note" x="20" y="290">Verificación humana por muestreo en cada lote:</text>
+      <text class="note" x="20" y="310">un OCR sin control de calidad produce un índice</text>
+      <text class="note" x="20" y="330">en el que nadie puede confiar.</text>
+    </svg>
+  </div>
+  <figcaption>
+    Flujo de referencia. El OCR indexa, no reemplaza: el escaneo original se conserva siempre, y la
+    digitalización es respaldo y acceso, nunca destrucción del papel.
+  </figcaption>
+</figure>

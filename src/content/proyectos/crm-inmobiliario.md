@@ -18,6 +18,7 @@ accent: "cobalt"
 order: 3
 featured: true
 needsReview: true
+diagram: "crm"
 ---
 
 ## Contexto

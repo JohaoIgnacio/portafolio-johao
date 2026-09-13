@@ -555,3 +555,106 @@ details[open] summary::after {
     padding: 22px;
   }
 }
+
+/* ---------- Diagramas de arquitectura ---------- */
+.diagram-figure {
+  margin: 0;
+}
+
+.diagram-wrap {
+  overflow-x: auto;
+  padding: 26px 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.diagram {
+  display: block;
+  width: 100%;
+  min-width: 700px;
+  height: auto;
+}
+
+.diagram .box {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+
+.diagram .box-accent {
+  fill: var(--mist);
+  stroke: rgba(15, 118, 110, .42);
+}
+
+.diagram .box-warn {
+  fill: rgba(217, 119, 6, .07);
+  stroke: rgba(217, 119, 6, .42);
+}
+
+.diagram .zone {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 6;
+}
+
+.diagram .lbl {
+  font: 700 14px "Inter", system-ui, sans-serif;
+  fill: var(--ink);
+}
+
+.diagram .sub-strong {
+  font: 650 13px "Inter", system-ui, sans-serif;
+  fill: var(--ink);
+}
+
+.diagram .sub {
+  font: 500 12px "Inter", system-ui, sans-serif;
+  fill: var(--muted);
+}
+
+.diagram .zlbl {
+  font: 800 11px "Inter", system-ui, sans-serif;
+  fill: var(--muted);
+  letter-spacing: .14em;
+}
+
+.diagram .note {
+  font: 500 12.5px "Inter", system-ui, sans-serif;
+  fill: var(--muted);
+}
+
+.diagram .line {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 2;
+}
+
+.diagram .flow {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.6;
+}
+
+.diagram .flow-accent {
+  stroke: var(--teal);
+}
+
+.diagram .arrow-head {
+  fill: var(--muted);
+}
+
+.diagram-figure figcaption {
+  max-width: 760px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .diagram-wrap {
+    padding: 16px 14px;
+  }
+}

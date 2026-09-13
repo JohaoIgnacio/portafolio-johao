@@ -18,6 +18,7 @@ accent: "amber"
 order: 4
 featured: true
 needsReview: false
+diagram: "gobierno-digital"
 ---
 
 ## Contexto

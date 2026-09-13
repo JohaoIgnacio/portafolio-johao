@@ -18,6 +18,8 @@ const proyectos = defineCollection({
     featured: z.boolean().default(true),
     /** Marca los casos cuyo detalle fino aún debe confirmar Johao antes de publicar. */
     needsReview: z.boolean().default(false),
+    /** Diagrama de arquitectura a renderizar. Esquemas de referencia, sin datos de cliente. */
+    diagram: z.enum(["erp-odoo", "infraestructura", "crm", "gobierno-digital", "automatizacion"]).optional(),
   }),
 });
 

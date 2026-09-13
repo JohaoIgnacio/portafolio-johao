@@ -1,0 +1,56 @@
+---
+/** Arquitectura de referencia del CRM. Esquema genérico, sin datos del cliente. */
+---
+<figure class="diagram-figure">
+  <div class="diagram-wrap">
+    <svg class="diagram" viewBox="0 0 880 330" role="img" aria-labelledby="d-crm-title d-crm-desc">
+      <title id="d-crm-title">Arquitectura de referencia del CRM inmobiliario</title>
+      <desc id="d-crm-desc">
+        Asesores y dirección trabajan sobre una interfaz React que consume una API REST en Spring
+        Boot con control de acceso por rol, apoyada en PostgreSQL donde cada oportunidad guarda su
+        línea de tiempo de interacciones.
+      </desc>
+
+      <defs>
+        <marker id="a-crm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 10 5 0 10z" class="arrow-head" />
+        </marker>
+      </defs>
+
+      <!-- Zona AWS -->
+      <rect class="zone" x="418" y="76" width="442" height="152" rx="10" />
+      <text class="zlbl" x="436" y="100">AWS</text>
+
+      <rect class="box" x="20" y="120" width="160" height="84" rx="8" />
+      <text class="lbl" x="100" y="150" text-anchor="middle">Asesores</text>
+      <text class="lbl" x="100" y="170" text-anchor="middle">y dirección</text>
+      <text class="sub" x="100" y="190" text-anchor="middle">Vistas según rol</text>
+
+      <rect class="box" x="225" y="120" width="170" height="84" rx="8" />
+      <text class="lbl" x="310" y="152" text-anchor="middle">React</text>
+      <text class="sub" x="310" y="174" text-anchor="middle">Tablero de embudo</text>
+      <text class="sub" x="310" y="191" text-anchor="middle">y ficha de lead</text>
+
+      <rect class="box box-accent" x="440" y="120" width="180" height="84" rx="8" />
+      <text class="lbl" x="530" y="152" text-anchor="middle">Spring Boot</text>
+      <text class="sub" x="530" y="174" text-anchor="middle">API REST</text>
+      <text class="sub" x="530" y="191" text-anchor="middle">Acceso por rol</text>
+
+      <rect class="box" x="665" y="120" width="175" height="84" rx="8" />
+      <text class="lbl" x="752" y="152" text-anchor="middle">PostgreSQL</text>
+      <text class="sub" x="752" y="174" text-anchor="middle">Oportunidad y su</text>
+      <text class="sub" x="752" y="191" text-anchor="middle">línea de tiempo</text>
+
+      <path class="flow" marker-end="url(#a-crm)" d="M180 162 H218" />
+      <path class="flow" marker-end="url(#a-crm)" d="M395 162 H433" />
+      <path class="flow" marker-end="url(#a-crm)" d="M620 162 H658" />
+
+      <text class="note" x="20" y="266">Cada interacción se registra contra la oportunidad, no contra el asesor.</text>
+      <text class="note" x="20" y="288">Cuando alguien rota, la negociación continúa con contexto en lugar de empezar de cero.</text>
+    </svg>
+  </div>
+  <figcaption>
+    Arquitectura de referencia. El modelo de datos gira alrededor de la oportunidad y su historial,
+    que es lo que permitió medir el ciclo comercial de punta a punta.
+  </figcaption>
+</figure>
